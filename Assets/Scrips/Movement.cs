@@ -5,6 +5,10 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] float movement_speed = 8;
+    [SerializeField] Sprite left_facing;
+    [SerializeField] Sprite right_facing;
+    [SerializeField] Sprite down_facing;
+    [SerializeField] Sprite up_facing;
     SpriteRenderer player_renderer;
 
     void Start() 
@@ -14,14 +18,22 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        // if(Input.GetKey(KeyCode.RightArrow))
-        // {
-        //     player_renderer.
-        // }
-        // if(Input.GetKey(KeyCode.LeftArrow))
-        // {
-        //     player_renderer.
-        // }
+        if(Input.GetKey(KeyCode.RightArrow))
+        {
+            player_renderer.sprite = right_facing;
+        }
+        if(Input.GetKey(KeyCode.LeftArrow))
+        {
+            player_renderer.sprite = left_facing;
+        }
+        if(Input.GetKey(KeyCode.UpArrow))
+        {
+            player_renderer.sprite = up_facing;
+        }
+        if(Input.GetKey(KeyCode.DownArrow))
+        {
+            player_renderer.sprite = down_facing;
+        }
 
         float x_movement = Input.GetAxis("Horizontal") * movement_speed * Time.deltaTime;
         float y_movement = Input.GetAxis("Vertical") * movement_speed * Time.deltaTime;
