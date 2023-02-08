@@ -12,12 +12,14 @@ public class Encounter : MonoBehaviour
     [SerializeField] AudioClip winSFX;
     AudioSource audio_player;
     ParticleSystem particles;
+    SpriteRenderer enemy_renderer;
 
     void Start() {
         canvas = transform.GetComponentInChildren<Canvas>();
         canvas.enabled = false;
         correct_button = canvas.transform.Find("Correct_button").gameObject.GetComponent<Button>();
 
+        enemy_renderer = gameObject.GetComponent<SpriteRenderer>();
         particles = transform.GetComponentInChildren<ParticleSystem>();
         audio_player = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -33,6 +35,7 @@ public class Encounter : MonoBehaviour
     {
         player.GetComponent<Movement>().enabled = true;
         canvas.enabled = false;
+        enemy_renderer.color = Color.red;
 
         audio_player.PlayOneShot(winSFX);
         particles.Play();
