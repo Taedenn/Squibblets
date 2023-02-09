@@ -8,37 +8,43 @@ public class Encounter : MonoBehaviour
     GameObject player;
     Canvas canvas;
     Button correct_button;
+    [SerializeField] float deletion_delay = 2f;
+    [SerializeField] AudioClip winSFX;
+    AudioSource audio_player;
+    ParticleSystem particles;
+    SpriteRenderer enemy_renderer;
 
     void Start() {
         canvas = transform.GetComponentInChildren<Canvas>();
         canvas.enabled = false;
         correct_button = canvas.transform.Find("Correct_button").gameObject.GetComponent<Button>();
+
+        enemy_renderer = gameObject.GetComponent<SpriteRenderer>();
+        particles = transform.GetComponentInChildren<ParticleSystem>();
+        audio_player = GetComponent<AudioSource>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     void OnTriggerEnter2D(Collider2D other) {
-        Canvas canvas = transform.GetComponentInChildren<Canvas>();
         canvas.enabled = true;
-        correct_button.onClick.AddListener(Deletion);
+        correct_button.onClick.AddListener(Win);
 
-        if(other.CompareTag("Player"))
-        {
-            player = other.gameObject;
-            other.GetComponent<Movement>().enabled = false;
-        }   
+        player.GetComponent<Movement>().enabled = false;
     }
 
-    void Deletion() 
+    void Win() 
     {
         player.GetComponent<Movement>().enabled = true;
-        Destroy(gameObject);
+        canvas.enabled = false;
+        enemy_renderer.color = Color.red;
+
+        audio_player.PlayOneShot(winSFX);
+        particles.Play();
+        Invoke("Deletion", deletion_delay);
     }
 
-    Transform FindWithTag(Transform root, string tag)
+    void Deletion()
     {
-        foreach (Transform t in root.GetComponentsInChildren<Transform>())
-        {
-            if (t.CompareTag(tag)) return t;
-        }
-        return null;
+        Destroy(gameObject);
     }
 
 }
