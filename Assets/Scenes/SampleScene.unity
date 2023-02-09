@@ -13937,6 +13937,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267fc2b371354924889112124635ffab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deletion_delay: 2
+  winSFX: {fileID: 8300000, guid: 54395fd2403c204409700488d7e1cac9, type: 3}
 --- !u!61 &2102159685
 BoxCollider2D:
   m_ObjectHideFlags: 0
