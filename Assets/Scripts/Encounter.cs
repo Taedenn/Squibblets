@@ -17,7 +17,7 @@ public class Encounter : MonoBehaviour
     List<GameObject> incorrect_buttons;
     GameObject correct_button;
     [SerializeField] GameObject question_text_box;
-    [SerializeField] List<GameObject> unactive_objects;
+    List<GameObject> unactive_objects;
     [SerializeField] float deletion_delay = 2f;
     [SerializeField] AudioClip winSFX;
     [SerializeField] AudioClip loseSFX;
