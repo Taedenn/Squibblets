@@ -6,15 +6,17 @@ using TMPro;
 
 public class Encounter : MonoBehaviour
 {
+    [SerializeField] GameObject player;
     [SerializeField] string question;
     [SerializeField] int correct_answer;
-    GameObject player;
-    Canvas canvas;
+    [SerializeField] int random_range;
+    [SerializeField] GameObject button1;
+    [SerializeField] GameObject button2;
+    [SerializeField] GameObject button3;
+    List<GameObject> incorrect_buttons;
     GameObject correct_button;
-    GameObject incorrect_button;
-    TextMeshProUGUI correct_text;
-    TextMeshProUGUI incorrect_text;
-    TextMeshProUGUI question_text;
+    [SerializeField] GameObject question_text_box;
+    [SerializeField] List<GameObject> unactive_objects;
     [SerializeField] float deletion_delay = 2f;
     [SerializeField] AudioClip winSFX;
     AudioSource audio_player;
@@ -23,35 +25,40 @@ public class Encounter : MonoBehaviour
     bool isDead = false;
 
     void Start() {
-        canvas = FindFirstObjectByType<Canvas>();
 
-        question_text = canvas.transform.Find("Question_text").GetComponent<TextMeshProUGUI>();
-        question_text.enabled = false;
+        unactive_objects = new List<GameObject>{button1, button2, button3, question_text_box};
 
-        correct_button = canvas.transform.Find("Correct_button").gameObject;
-        incorrect_button = canvas.transform.Find("Incorrect_button").gameObject;
-        
-        correct_text = correct_button.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        incorrect_text = incorrect_button.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-
-        correct_button.SetActive(false);
-        incorrect_button.SetActive(false);
+        incorrect_buttons = new List<GameObject>{button1, button2, button3};
+        correct_button = incorrect_buttons[Random.Range(0, 3)];
+        incorrect_buttons.Remove(correct_button);
 
         enemy_renderer = gameObject.GetComponent<SpriteRenderer>();
         particles = transform.GetComponentInChildren<ParticleSystem>();
         audio_player = GetComponent<AudioSource>();
-        player = GameObject.FindGameObjectWithTag("Player");
     }
     void OnTriggerEnter2D(Collider2D other) {
         if (isDead)
             return;
-        
-        question_text.SetText(question);
-        question_text.enabled = true;
 
-        correct_text.SetText(correct_answer.ToString());
-        correct_button.SetActive(true);
-        incorrect_button.SetActive(true);        
+        foreach (GameObject obj in unactive_objects)
+            obj.SetActive(true);
+
+        List<int> nums_used = new List<int>();
+        int random_number;
+
+        foreach (GameObject buttonObject in incorrect_buttons) {
+            random_number = Mathf.RoundToInt(Random.Range(-random_range, random_range));
+            
+            while (random_number == 0 || nums_used.Contains(random_number) || random_number + correct_answer < 0)
+                random_number = Mathf.RoundToInt(Random.Range(-random_range, random_range));
+            
+            buttonObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText((correct_answer + random_number).ToString());
+            nums_used.Add(random_number);
+        }
+        
+        correct_button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(correct_answer.ToString());
+        question_text_box.GetComponent<TextMeshProUGUI>().SetText(question);
+
         correct_button.GetComponent<Button>().onClick.AddListener(Win);
 
         player.GetComponent<Movement>().enabled = false;
@@ -60,8 +67,11 @@ public class Encounter : MonoBehaviour
     void Win() 
     {
         isDead = true;
+
+        foreach (GameObject obj in unactive_objects)
+            obj.SetActive(false);
+
         player.GetComponent<Movement>().enabled = true;
-        canvas.enabled = false;
         enemy_renderer.color = Color.red;
 
         audio_player.PlayOneShot(winSFX);
