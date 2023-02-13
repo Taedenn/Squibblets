@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class Encounter : MonoBehaviour
 {
@@ -53,6 +54,7 @@ public class Encounter : MonoBehaviour
                 random_number = Mathf.RoundToInt(Random.Range(-random_range, random_range));
             
             buttonObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText((correct_answer + random_number).ToString());
+            buttonObject.transform.GetComponent<Button>().onClick.AddListener(() => MakeButtonRed(buttonObject));
             nums_used.Add(random_number);
         }
         
@@ -62,6 +64,11 @@ public class Encounter : MonoBehaviour
         correct_button.GetComponent<Button>().onClick.AddListener(Win);
 
         player.GetComponent<Movement>().enabled = false;
+    }
+
+    void MakeButtonRed(GameObject button)
+    {
+        button.GetComponent<Image>().color = Color.red;
     }
 
     void Win() 
