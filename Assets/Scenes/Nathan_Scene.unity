@@ -8527,7 +8527,7 @@ GameObject:
   - component: {fileID: 1797143089}
   - component: {fileID: 1797143088}
   m_Layer: 0
-  m_Name: Music
+  m_Name: Music_player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15171,6 +15171,7 @@ MonoBehaviour:
   unactive_objects: []
   deletion_delay: 2
   winSFX: {fileID: 8300000, guid: 54395fd2403c204409700488d7e1cac9, type: 3}
+  loseSFX: {fileID: 8300000, guid: 07392f9cebebb70458eab5f2136864e3, type: 3}
 --- !u!61 &2102159685
 BoxCollider2D:
   m_ObjectHideFlags: 0
