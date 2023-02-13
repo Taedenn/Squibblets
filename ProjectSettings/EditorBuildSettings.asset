@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Nathan_Scene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Main_Menu.unity
+    guid: 50c7be42e5c8dde4b9b32e7a3f7f49d0
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 60d8661a8730df3478bc711f0d8926b5
   m_configObjects: {}
