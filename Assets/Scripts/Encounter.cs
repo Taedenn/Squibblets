@@ -20,6 +20,7 @@ public class Encounter : MonoBehaviour
     [SerializeField] List<GameObject> unactive_objects;
     [SerializeField] float deletion_delay = 2f;
     [SerializeField] AudioClip winSFX;
+    [SerializeField] AudioClip loseSFX;
     AudioSource audio_player;
     ParticleSystem particles;
     SpriteRenderer enemy_renderer;
@@ -54,7 +55,7 @@ public class Encounter : MonoBehaviour
                 random_number = Mathf.RoundToInt(Random.Range(-random_range, random_range));
             
             buttonObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText((correct_answer + random_number).ToString());
-            buttonObject.transform.GetComponent<Button>().onClick.AddListener(() => MakeButtonRed(buttonObject));
+            buttonObject.transform.GetComponent<Button>().onClick.AddListener(() => WrongAnswerAction(buttonObject));
             nums_used.Add(random_number);
         }
         
@@ -66,9 +67,10 @@ public class Encounter : MonoBehaviour
         player.GetComponent<Movement>().enabled = false;
     }
 
-    void MakeButtonRed(GameObject button)
+    void WrongAnswerAction(GameObject button)
     {
         button.GetComponent<Image>().color = Color.red;
+        audio_player.PlayOneShot(loseSFX);
     }
 
     void Win() 
