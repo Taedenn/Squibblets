@@ -8,8 +8,7 @@ using UnityEngine.Events;
 public class Encounter : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField] string question;
-    [SerializeField] int correct_answer;
+    int correct_answer;
     [SerializeField] int random_range;
     [SerializeField] GameObject button1;
     [SerializeField] GameObject button2;
@@ -25,8 +24,12 @@ public class Encounter : MonoBehaviour
     ParticleSystem particles;
     SpriteRenderer enemy_renderer;
     bool isDead = false;
+    [SerializeField] TextAsset question_file;
+    string question;
 
     void Start() {
+        question = GetRandomQuestion();
+        correct_answer = GetCorrectAnswer(question);
 
         unactive_objects = new List<GameObject>{button1, button2, button3, question_text_box};
 
@@ -38,6 +41,7 @@ public class Encounter : MonoBehaviour
         particles = transform.GetComponentInChildren<ParticleSystem>();
         audio_player = GetComponent<AudioSource>();
     }
+
     void OnTriggerEnter2D(Collider2D other) {
         if (isDead)
             return;
@@ -50,6 +54,33 @@ public class Encounter : MonoBehaviour
         correct_button.GetComponent<Button>().onClick.AddListener(Win);
 
         player.GetComponent<Movement>().enabled = false;
+    }
+
+    string GetRandomQuestion()
+    {
+        string[] questions_array = question_file.text.Split('\n');
+        int random_index = Random.Range(0, questions_array.Length);
+        return questions_array[random_index];
+    }
+
+    int GetCorrectAnswer(string question_text)
+    {
+        string[] question_parts = question_text.Split(' ');
+
+        int first_number = int.Parse(question_parts[0]);
+        char op = question_parts[1][0];
+        int second_number = int.Parse(question_parts[2]);
+
+        if (op == '+')
+            return first_number + second_number;
+        if (op == '-')
+            return first_number - second_number;
+        if (op == '*')
+            return first_number * second_number;
+        if (op == '/')
+            return first_number / second_number;
+
+        return -1;
     }
 
     void SetButtonAnswers()
