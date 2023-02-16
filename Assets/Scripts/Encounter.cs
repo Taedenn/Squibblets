@@ -45,6 +45,15 @@ public class Encounter : MonoBehaviour
         foreach (GameObject obj in unactive_objects)
             obj.SetActive(true);
 
+        SetButtonAnswers();
+
+        correct_button.GetComponent<Button>().onClick.AddListener(Win);
+
+        player.GetComponent<Movement>().enabled = false;
+    }
+
+    void SetButtonAnswers()
+    {
         List<int> nums_used = new List<int>();
         int random_number;
 
@@ -61,10 +70,6 @@ public class Encounter : MonoBehaviour
         
         correct_button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(correct_answer.ToString());
         question_text_box.GetComponent<TextMeshProUGUI>().SetText(question);
-
-        correct_button.GetComponent<Button>().onClick.AddListener(Win);
-
-        player.GetComponent<Movement>().enabled = false;
     }
 
     void WrongAnswerAction(GameObject button)
