@@ -8,8 +8,7 @@ using UnityEngine.Events;
 public class Encounter : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    int correct_answer;
-    [SerializeField] int random_range;
+    [SerializeField] int random_range = 5;
     [SerializeField] GameObject button1;
     [SerializeField] GameObject button2;
     [SerializeField] GameObject button3;
@@ -23,9 +22,10 @@ public class Encounter : MonoBehaviour
     AudioSource audio_player;
     ParticleSystem particles;
     SpriteRenderer enemy_renderer;
-    bool isDead = false;
     [SerializeField] TextAsset question_file;
+    bool isDead = false;
     string question;
+    int correct_answer;
 
     void Start() {
         question = GetRandomQuestion();

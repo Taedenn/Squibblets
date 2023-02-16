@@ -15167,7 +15167,7 @@ GameObject:
   - component: {fileID: 2102159689}
   - component: {fileID: 2102159690}
   m_Layer: 0
-  m_Name: Icon_of_sin
+  m_Name: Tutorial_enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15246,7 +15246,7 @@ MonoBehaviour:
   deletion_delay: 2
   winSFX: {fileID: 8300000, guid: 54395fd2403c204409700488d7e1cac9, type: 3}
   loseSFX: {fileID: 8300000, guid: 07392f9cebebb70458eab5f2136864e3, type: 3}
-  question_file: {fileID: 4900000, guid: c56469b5f45d10849b3306247ecadb58, type: 3}
+  question_file: {fileID: 4900000, guid: c8ea5d19dce90b5459456c8087143921, type: 3}
 --- !u!61 &2102159685
 BoxCollider2D:
   m_ObjectHideFlags: 0
