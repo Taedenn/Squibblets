@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 1f;
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
- 
+    Animator animator;
     private Vector2 moveInput;
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     private Rigidbody2D rb;
@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
  
     public void FixedUpdate()
@@ -29,17 +30,54 @@ public class PlayerController : MonoBehaviour
         
         
         // Try to move player in input direction, followed by left right and up down input if failed
-        bool success = MovePlayer(moveInput);
-        
-        if(!success)
-        {
-            // Try Left / Right
-            success = MovePlayer(new Vector2(moveInput.x, 0));
- 
+        if(moveInput != Vector2.zero){
+            // setting bool variable to result of method MovePlayer,
+            // MovePlayer looks for collisions ahead of desired input movement.
+            // If there is a collision, it will return false.
+            bool success = MovePlayer(moveInput);
             if(!success)
             {
-                success = MovePlayer(new Vector2(0, moveInput.y));
+                // try left/right movement after hitting collider
+                success = MovePlayer(new Vector2(moveInput.x, 0));
+                // this checks if we can move horizontally
+                if(!success)
+                    {
+                        // then this will check if vertical movement is possible
+                        success = MovePlayer(new Vector2(0, moveInput.y));
+                    }
             }
+            // setting animations based on movement
+            else if(moveInput.x > 0){
+                    animator.SetBool("walk_left", false);
+                    animator.SetBool("walk_front", false);
+                    animator.SetBool("walk_back", false);
+                    animator.SetBool("walk_right", success);
+            }
+            else if(moveInput.x < 0){
+                    animator.SetBool("walk_right", false);
+                    animator.SetBool("walk_front", false);
+                    animator.SetBool("walk_back", false);
+                    animator.SetBool("walk_left", success);
+            }
+            else if(moveInput.y < 0){
+                    animator.SetBool("walk_right", false);
+                    animator.SetBool("walk_left", false);
+                    animator.SetBool("walk_back", false);
+                    animator.SetBool("walk_front", success);
+            }
+            else if(moveInput.y > 0){
+                    animator.SetBool("walk_right", false);
+                    animator.SetBool("walk_left", false);
+                    animator.SetBool("walk_front", false);
+                    animator.SetBool("walk_back", success);
+
+            }
+        }
+        else {
+            animator.SetBool("walk_right", false);
+            animator.SetBool("walk_left", false);
+            animator.SetBool("walk_front", false);
+            animator.SetBool("walk_back", false);
         }
  
     }
