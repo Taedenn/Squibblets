@@ -65,7 +65,7 @@ public class Encounter : MonoBehaviour
 
         correct_button.GetComponent<Button>().onClick.AddListener(Win);
 
-        player.GetComponent<Movement>().enabled = false;
+        player.GetComponent<PlayerController>().enabled = false;
     }
 
     void CheckButtonChange()
@@ -178,7 +178,7 @@ public class Encounter : MonoBehaviour
         foreach (GameObject obj in unactive_objects)
             obj.SetActive(false);
 
-        player.GetComponent<Movement>().enabled = true;
+        player.GetComponent<PlayerController>().enabled = true;
         enemy_renderer.color = Color.red;
 
         audio_player.PlayOneShot(winSFX);
