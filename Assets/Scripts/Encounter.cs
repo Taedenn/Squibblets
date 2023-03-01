@@ -56,6 +56,8 @@ public class Encounter : MonoBehaviour
         if (isDead)
             return;
 
+        Debug.Log("Something");
+
         inEncounter = true;
 
         foreach (GameObject obj in unactive_objects)
