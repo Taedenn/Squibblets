@@ -255,7 +255,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1696653887}
-  - {fileID: 1012453516}
+  - {fileID: 1012453518}
   m_Father: {fileID: 256435662}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -505,7 +505,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1012453516}
+  - component: {fileID: 1012453518}
   - component: {fileID: 1012453517}
   m_Layer: 0
   m_Name: S
@@ -514,21 +514,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1012453516
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1012453515}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 29, z: -40050}
-  m_LocalScale: {x: 80, y: 80, z: 45}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 296008835}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1012453517
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -581,6 +566,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!224 &1012453518
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012453515}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -40050}
+  m_LocalScale: {x: 80, y: 80, z: 45}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 296008835}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.19036525, y: 0.42444625}
+  m_AnchorMax: {x: 0.8028844, y: 0.86}
+  m_AnchoredPosition: {x: 2, y: -35}
+  m_SizeDelta: {x: -480, y: -188.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1012658565
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,7 +867,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.75
+  m_fontSize: 31.15
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -992,10 +997,10 @@ RectTransform:
   m_Father: {fileID: 296008835}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2228652, y: 0.39873758}
-  m_AnchorMax: {x: 0.77913487, y: 0.6012625}
-  m_AnchoredPosition: {x: 0, y: -76}
-  m_SizeDelta: {x: -330, y: -60}
+  m_AnchorMin: {x: 0.39661506, y: 0.28766823}
+  m_AnchorMax: {x: 0.61038387, y: 0.38667288}
+  m_AnchoredPosition: {x: -2, y: -2.5}
+  m_SizeDelta: {x: -56, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1696653888
 MonoBehaviour:
