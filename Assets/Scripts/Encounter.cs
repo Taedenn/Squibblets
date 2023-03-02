@@ -66,6 +66,7 @@ public class Encounter : MonoBehaviour
 
         correct_button.GetComponent<Button>().onClick.AddListener(Win);
 
+        player.GetComponent<PlayerController>().CancelAnimations();
         player.GetComponent<PlayerController>().enabled = false;
     }
 

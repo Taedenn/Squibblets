@@ -14,10 +14,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject left;
     [SerializeField] GameObject up;
     [SerializeField] GameObject down;
-    //player assets
-    [SerializeField] GameObject playerLeft;
-    [SerializeField] GameObject playerRight;
-    [SerializeField] GameObject playerBack;
+    //player sprites/SpriteRenderer
+    [SerializeField] Sprite playerLeft;
+    [SerializeField] Sprite playerRight;
+    [SerializeField] Sprite playerBack;
+    [SerializeField] Sprite playerFront;
     SpriteRenderer player;
     //for animations
     Animator animator;
@@ -64,24 +65,33 @@ public class PlayerController : MonoBehaviour
                     animator.SetBool("walk_front", false);
                     animator.SetBool("walk_back", false);
                     animator.SetBool("walk_right", success);
+                    //changing sprite
+                    ChangeSprite(playerRight);
             }
             else if(moveInput.x < 0){
                     animator.SetBool("walk_right", false);
                     animator.SetBool("walk_front", false);
                     animator.SetBool("walk_back", false);
                     animator.SetBool("walk_left", success);
+                    //changing sprite
+                    ChangeSprite(playerLeft);
             }
             else if(moveInput.y < 0){
                     animator.SetBool("walk_right", false);
                     animator.SetBool("walk_left", false);
                     animator.SetBool("walk_back", false);
                     animator.SetBool("walk_front", success);
+                    //changing sprite
+                    print("success");
+                    ChangeSprite(playerFront);
             }
             else if(moveInput.y > 0){
                     animator.SetBool("walk_right", false);
                     animator.SetBool("walk_left", false);
                     animator.SetBool("walk_front", false);
                     animator.SetBool("walk_back", success);
+                    //changing sprite
+                    ChangeSprite(playerBack);
             }
         }
         else {
@@ -121,6 +131,21 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+
+    private void LateUpdate(){
+        this.player.sprite = player.sprite;
+    }
+    //change player sprite
+    public void ChangeSprite(Sprite newSprite){
+        player.sprite = newSprite;
+    }
+
+    public void CancelAnimations(){
+        animator.SetBool("walk_right", false);
+        animator.SetBool("walk_left", false);
+        animator.SetBool("walk_front", false);
+        animator.SetBool("walk_back", false);
     }
 
     //Following methods set up moveInput for buttons on screen
