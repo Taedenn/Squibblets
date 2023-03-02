@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         // Try to move player in input direction, followed by left right and up down input if failed
         if(moveInput != Vector2.zero){
+
             // setting bool variable to result of method MovePlayer,
             // MovePlayer looks for collisions ahead of desired input movement.
             // If there is a collision, it will return false.
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour
                     }
             }
             // setting animations based on movement
-            else if(moveInput.x > 0){
+            else if(moveInput.x == 1){
                     animator.SetBool("walk_left", false);
                     animator.SetBool("walk_front", false);
                     animator.SetBool("walk_back", false);
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour
                     //changing sprite
                     ChangeSprite(playerRight);
             }
-            else if(moveInput.x < 0){
+            else if(moveInput.x == -1){
                     animator.SetBool("walk_right", false);
                     animator.SetBool("walk_front", false);
                     animator.SetBool("walk_back", false);
@@ -76,7 +77,7 @@ public class PlayerController : MonoBehaviour
                     //changing sprite
                     ChangeSprite(playerLeft);
             }
-            else if(moveInput.y < 0){
+            else if(moveInput.y == -1){
                     animator.SetBool("walk_right", false);
                     animator.SetBool("walk_left", false);
                     animator.SetBool("walk_back", false);
@@ -85,7 +86,7 @@ public class PlayerController : MonoBehaviour
                     print("success");
                     ChangeSprite(playerFront);
             }
-            else if(moveInput.y > 0){
+            else if(moveInput.y == 1){
                     animator.SetBool("walk_right", false);
                     animator.SetBool("walk_left", false);
                     animator.SetBool("walk_front", false);
