@@ -17,6 +17,7 @@ public class Encounter : MonoBehaviour
     [SerializeField] AudioClip loseSFX;
     [SerializeField] AudioClip button_selectSFX;
     [SerializeField] TextAsset question_file;
+
     List<GameObject> incorrect_buttons;
     GameObject correct_button;
     List<GameObject> unactive_objects;

@@ -9,26 +9,28 @@ using UnityEngine.InputSystem;
  
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] GameObject right;
+    [SerializeField] GameObject left;
+    [SerializeField] GameObject up;
+    [SerializeField] GameObject down;
+    Animator animator;
+
     public float moveSpeed = 1f;
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
-    Animator animator;
     private Vector2 moveInput;
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     private Rigidbody2D rb;
- 
+
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
     }
  
     public void FixedUpdate()
     {
-        
-        // rb.MovePosition(rb.position + (moveInput * moveSpeed * Time.fixedDeltaTime));
-        
-        
         // Try to move player in input direction, followed by left right and up down input if failed
         if(moveInput != Vector2.zero){
             // setting bool variable to result of method MovePlayer,
@@ -38,8 +40,9 @@ public class PlayerController : MonoBehaviour
             if(!success)
             {
                 // try left/right movement after hitting collider
-                success = MovePlayer(new Vector2(moveInput.x, 0));
                 // this checks if we can move horizontally
+                success = MovePlayer(new Vector2(moveInput.x, 0));
+
                 if(!success)
                     {
                         // then this will check if vertical movement is possible
@@ -70,7 +73,6 @@ public class PlayerController : MonoBehaviour
                     animator.SetBool("walk_left", false);
                     animator.SetBool("walk_front", false);
                     animator.SetBool("walk_back", success);
-
             }
         }
         else {
@@ -83,7 +85,7 @@ public class PlayerController : MonoBehaviour
     }
  
     // Tries to move the player in a direction by casting in that direction by the amount
-    // moved plus an offset. If no collisions are found, it moves the players
+    // moved plus an offset. If no collisions are found, it moves the player
     // Returns true or false depending on if a move was executed
     public bool MovePlayer(Vector2 direction)
     {
@@ -97,14 +99,12 @@ public class PlayerController : MonoBehaviour
         if (count == 0)
         {
             Vector2 moveVector = direction * moveSpeed * Time.fixedDeltaTime;
- 
             // No collisions
             rb.MovePosition(rb.position + moveVector);
             return true;
         }
         else
         {
- 
             return false;
         }
     }
@@ -112,6 +112,48 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+
+    //Following methods set up moveInput for buttons on screen
+
+    //Up button is pressed down
+    public void UpIsDown(){
+        moveInput = new Vector2(0,1);
+    }
+
+    //Up button is not pressed down
+    public void UpIsUp(){
+        moveInput = new Vector2(0,0);
+    }
+
+    //Down button is pressed down
+    public void DownIsDown(){
+        moveInput = new Vector2(0,-1);
+    }
+
+    //Down button is not pressed down
+    public void DownIsUp(){
+        moveInput = new Vector2(0,0);
+    }
+
+    //Right button is pressed down
+    public void RightIsDown(){
+        moveInput = new Vector2(1,0);
+    }
+
+    //Right button is not pressed down
+    public void RightIsUp(){
+        moveInput = new Vector2(0,0);
+    }
+
+    //Left button is pressed down
+    public void LeftIsDown(){
+        moveInput = new Vector2(-1,0);
+    }
+
+    //Left button is not pressed down
+    public void LeftIsUp(){
+        moveInput = new Vector2(0,0);
     }
  
 }
