@@ -9,10 +9,17 @@ using UnityEngine.InputSystem;
  
 public class PlayerController : MonoBehaviour
 {
+    //buttons
     [SerializeField] GameObject right;
     [SerializeField] GameObject left;
     [SerializeField] GameObject up;
     [SerializeField] GameObject down;
+    //player assets
+    [SerializeField] GameObject playerLeft;
+    [SerializeField] GameObject playerRight;
+    [SerializeField] GameObject playerBack;
+    SpriteRenderer player;
+    //for animations
     Animator animator;
 
     public float moveSpeed = 1f;
@@ -22,8 +29,10 @@ public class PlayerController : MonoBehaviour
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     private Rigidbody2D rb;
 
+
     public void Start()
     {
+        player = gameObject.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
