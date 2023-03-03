@@ -124,6 +124,13 @@ public class PlayerController : MonoBehaviour
         moveInput = value.Get<Vector2>();
     }
 
+    public void TerminateAnimations(){
+        animator.SetBool("walk_right", false);
+        animator.SetBool("walk_left", false);
+        animator.SetBool("walk_front", false);
+        animator.SetBool("walk_back", false);
+    }
+
     //Following methods set up moveInput for buttons on screen
 
     //Up button is pressed down
