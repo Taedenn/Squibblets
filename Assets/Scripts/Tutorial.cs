@@ -2,19 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Tutorial : MonoBehaviour
 {
-    private Vector2 moveInput;
+    [SerializeField] GameObject player;
+    private Vector2 ref_position;
+
+    public void Start(){
+        ref_position = player.transform.position;
+    }
+
     void Update()
     {
-        if (moveInput != Vector2.zero)
+        Vector2 player_position = player.transform.position;
+        if (player_position != ref_position)
         {
             Destroy(gameObject);
         }
-    }
-    void OnMove(InputValue value){
-        moveInput = value.Get<Vector2>();
     }
 }
