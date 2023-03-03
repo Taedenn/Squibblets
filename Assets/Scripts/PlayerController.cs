@@ -15,9 +15,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject up;
     [SerializeField] GameObject down;
     //player assets
-    [SerializeField] GameObject playerLeft;
-    [SerializeField] GameObject playerRight;
-    [SerializeField] GameObject playerBack;
     SpriteRenderer player;
     //for animations
     Animator animator;
