@@ -2,15 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Tutorial : MonoBehaviour
 {
+    private Vector2 moveInput;
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)
-        || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        if (moveInput != Vector2.zero)
         {
             Destroy(gameObject);
         }
+    }
+    void OnMove(InputValue value){
+        moveInput = value.Get<Vector2>();
     }
 }
