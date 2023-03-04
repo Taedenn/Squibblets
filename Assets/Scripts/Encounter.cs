@@ -32,6 +32,8 @@ public class Encounter : MonoBehaviour
     float last_button_change = 0;
     float last_button_select = 0;
 
+    public PlayerController playerRef;
+
     void Start() {
         question = GetRandomQuestion();
         correct_answer = GetCorrectAnswer(question);
@@ -183,6 +185,7 @@ public class Encounter : MonoBehaviour
         player.GetComponent<PlayerController>().enabled = true;
         enemy_renderer.color = Color.red;
 
+        KillCounter(player.GetComponent<PlayerController>());
         audio_player.PlayOneShot(winSFX);
         particles.Play();
         Invoke("Deletion", deletion_delay);
@@ -193,4 +196,7 @@ public class Encounter : MonoBehaviour
         Destroy(gameObject);
     }
 
+    void KillCounter(PlayerController playerRef){
+        playerRef.killCount++;
+    }
 }
