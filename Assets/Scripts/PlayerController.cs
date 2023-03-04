@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject down;
     //player assets
     SpriteRenderer player;
+    [SerializeField] Sprite playerRight;
+    [SerializeField] Sprite playerLeft;
+    [SerializeField] Sprite playerFront;
+    [SerializeField] Sprite playerBack;
     //for animations
     Animator animator;
 
@@ -64,24 +68,28 @@ public class PlayerController : MonoBehaviour
                     animator.SetBool("walk_front", false);
                     animator.SetBool("walk_back", false);
                     animator.SetBool("walk_right", success);
+                    //player.sprite = playerRight;
             }
             else if(moveInput.x == -1){
                     animator.SetBool("walk_right", false);
                     animator.SetBool("walk_front", false);
                     animator.SetBool("walk_back", false);
                     animator.SetBool("walk_left", success);
+                    //player.sprite = playerLeft;
             }
             else if(moveInput.y == -1){
                     animator.SetBool("walk_right", false);
                     animator.SetBool("walk_left", false);
                     animator.SetBool("walk_back", false);
                     animator.SetBool("walk_front", success);
+                    //player.sprite = playerFront;
             }
             else if(moveInput.y == 1){
                     animator.SetBool("walk_right", false);
                     animator.SetBool("walk_left", false);
                     animator.SetBool("walk_front", false);
                     animator.SetBool("walk_back", success);
+                    //player.sprite = playerBack;
             }
         }
         else {

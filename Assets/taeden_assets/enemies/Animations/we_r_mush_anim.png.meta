@@ -120,9 +120,9 @@ TextureImporter:
       name: we_r_mush_anim_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
-        width: 32
+        width: 33
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -141,9 +141,9 @@ TextureImporter:
       name: we_r_mush_anim_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 36
         y: 0
-        width: 32
+        width: 33
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -162,7 +162,7 @@ TextureImporter:
       name: we_r_mush_anim_2
       rect:
         serializedVersion: 2
-        x: 66
+        x: 70
         y: 0
         width: 33
         height: 32
@@ -183,7 +183,7 @@ TextureImporter:
       name: we_r_mush_anim_3
       rect:
         serializedVersion: 2
-        x: 100
+        x: 104
         y: 0
         width: 37
         height: 32
@@ -204,7 +204,7 @@ TextureImporter:
       name: we_r_mush_anim_4
       rect:
         serializedVersion: 2
-        x: 138
+        x: 142
         y: 0
         width: 33
         height: 32
@@ -225,9 +225,9 @@ TextureImporter:
       name: we_r_mush_anim_5
       rect:
         serializedVersion: 2
-        x: 173
+        x: 176
         y: 0
-        width: 32
+        width: 33
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -246,9 +246,9 @@ TextureImporter:
       name: we_r_mush_anim_6
       rect:
         serializedVersion: 2
-        x: 207
+        x: 210
         y: 0
-        width: 32
+        width: 33
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

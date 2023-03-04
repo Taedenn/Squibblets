@@ -31,6 +31,7 @@ public class Encounter : MonoBehaviour
     bool inEncounter = false;
     float last_button_change = 0;
     float last_button_select = 0;
+    private Color originalColor;
 
     public PlayerController playerRef;
 
@@ -63,6 +64,7 @@ public class Encounter : MonoBehaviour
 
         foreach (GameObject obj in unactive_objects)
             obj.SetActive(true);
+        originalColor = button1.GetComponent<Image>().color;
 
         SetButtonAnswers();
 
@@ -173,6 +175,11 @@ public class Encounter : MonoBehaviour
         button.GetComponent<Image>().color = Color.red;
         audio_player.PlayOneShot(loseSFX);
     }
+    void ResetButtons(Color originalColor){
+        button1.GetComponent<Image>().color = originalColor;
+        button2.GetComponent<Image>().color = originalColor;
+        button3.GetComponent<Image>().color = originalColor;
+    }
 
     void Win() 
     {
@@ -188,6 +195,7 @@ public class Encounter : MonoBehaviour
         KillCounter(player.GetComponent<PlayerController>());
         audio_player.PlayOneShot(winSFX);
         particles.Play();
+        ResetButtons(originalColor);
         Invoke("Deletion", deletion_delay);
     }
 
