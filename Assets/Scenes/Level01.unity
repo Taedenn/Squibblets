@@ -25782,6 +25782,14 @@ PrefabInstance:
       propertyPath: question_text_box
       value: 
       objectReference: {fileID: 1021322355}
+    - target: {fileID: 6417332071071742162, guid: 5e2b501b198dde84880da0b6d355a0bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 41.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417332071071742162, guid: 5e2b501b198dde84880da0b6d355a0bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.34
+      objectReference: {fileID: 0}
     - target: {fileID: 7158874877382456085, guid: 5e2b501b198dde84880da0b6d355a0bb, type: 3}
       propertyPath: m_Name
       value: Enemy
