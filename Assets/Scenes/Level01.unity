@@ -5952,6 +5952,7 @@ MonoBehaviour:
   loseSFX: {fileID: 8300000, guid: 07392f9cebebb70458eab5f2136864e3, type: 3}
   button_selectSFX: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
   question_file: {fileID: 4900000, guid: c8ea5d19dce90b5459456c8087143921, type: 3}
+  playerRef: {fileID: 0}
 --- !u!212 &238963019
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6581,6 +6582,10 @@ PrefabInstance:
       objectReference: {fileID: 2133247887}
     - target: {fileID: 3541631963514725908, guid: df0d8435bdb7f464a925cf89f81edf21, type: 3}
       propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541631963514725908, guid: df0d8435bdb7f464a925cf89f81edf21, type: 3}
+      propertyPath: desiredKillCount
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3942277433376230307, guid: df0d8435bdb7f464a925cf89f81edf21, type: 3}
@@ -11761,6 +11766,7 @@ MonoBehaviour:
   loseSFX: {fileID: 8300000, guid: 07392f9cebebb70458eab5f2136864e3, type: 3}
   button_selectSFX: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
   question_file: {fileID: 4900000, guid: c8ea5d19dce90b5459456c8087143921, type: 3}
+  playerRef: {fileID: 0}
 --- !u!212 &504279570
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14703,6 +14709,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &909447426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 909447428}
+  - component: {fileID: 909447427}
+  m_Layer: 0
+  m_Name: SceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &909447427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909447426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a032d10e5b7404f88dbb76a42f493e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 486844666}
+--- !u!4 &909447428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909447426}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.054697, y: 3.1641843, z: -0.037939183}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &944484598
 GameObject:
   m_ObjectHideFlags: 0
@@ -22048,7 +22099,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 6
   m_Sprite: {fileID: -689807952, guid: 13019a8917eb0cd46afe24a453ed0040, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -28171,6 +28222,7 @@ MonoBehaviour:
   loseSFX: {fileID: 8300000, guid: 07392f9cebebb70458eab5f2136864e3, type: 3}
   button_selectSFX: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
   question_file: {fileID: 4900000, guid: c8ea5d19dce90b5459456c8087143921, type: 3}
+  playerRef: {fileID: 0}
 --- !u!212 &1652666231
 SpriteRenderer:
   m_ObjectHideFlags: 0
