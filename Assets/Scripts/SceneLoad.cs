@@ -8,6 +8,8 @@ public class SceneLoad : MonoBehaviour
 {
     [SerializeField] GameObject player;
     PlayerController playerRef;
+    public Animator animator;
+    private int nextScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +20,12 @@ public class SceneLoad : MonoBehaviour
     void Update()
     {
         if(playerRef.desiredKillCount == playerRef.killCount){
-            int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-            SceneManager.LoadScene(nextScene);
+            nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+            animator.SetTrigger("FadeOut");
+
         }
+    }
+    public void OnFadeComplete(){
+        SceneManager.LoadScene(nextScene);
     }
 }
