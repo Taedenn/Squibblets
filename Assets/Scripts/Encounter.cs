@@ -179,6 +179,7 @@ public class Encounter : MonoBehaviour
         button1.GetComponent<Image>().color = originalColor;
         button2.GetComponent<Image>().color = originalColor;
         button3.GetComponent<Image>().color = originalColor;
+        SetupButtons();
     }
 
     void Win() 
