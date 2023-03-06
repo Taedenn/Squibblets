@@ -5,10 +5,17 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
+    [SerializeField] GameObject player;
+    private Vector2 ref_position;
+
+    public void Start(){
+        ref_position = player.transform.position;
+    }
+
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)
-        || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        Vector2 player_position = player.transform.position;
+        if (player_position != ref_position)
         {
             Destroy(gameObject);
         }
