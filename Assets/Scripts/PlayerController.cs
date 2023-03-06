@@ -16,10 +16,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject down;
     //player assets
     SpriteRenderer player;
-    [SerializeField] Sprite playerRight;
-    [SerializeField] Sprite playerLeft;
-    [SerializeField] Sprite playerFront;
-    [SerializeField] Sprite playerBack;
+    //[SerializeField] Sprite playerRight;
+    //[SerializeField] Sprite playerLeft;
+    //[SerializeField] Sprite playerFront;
+    //[SerializeField] Sprite playerBack;
     //for animations
     Animator animator;
 
