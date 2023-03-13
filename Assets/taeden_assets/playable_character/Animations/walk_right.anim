@@ -20,27 +20,27 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1306663754, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+      value: {fileID: 1066064573, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
     - time: 0.083333336
-      value: {fileID: 1485090155, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+      value: {fileID: 1548729479, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
     - time: 0.16666667
-      value: {fileID: -2090273990, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+      value: {fileID: 1299425049, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
     - time: 0.25
-      value: {fileID: -857928568, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+      value: {fileID: -1387651831, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
     - time: 0.33333334
-      value: {fileID: 626918204, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+      value: {fileID: 705229095, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
     - time: 0.41666666
-      value: {fileID: -17757738, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+      value: {fileID: -1080171949, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
     - time: 0.5
-      value: {fileID: 1858750470, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+      value: {fileID: 406362205, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
     - time: 0.5833333
-      value: {fileID: 1752671142, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+      value: {fileID: -1386311829, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
     - time: 0.6666667
-      value: {fileID: -1943673484, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+      value: {fileID: 1161384451, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
     - time: 0.75
-      value: {fileID: 782789713, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+      value: {fileID: -1126480190, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
     - time: 0.8333333
-      value: {fileID: 230294885, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+      value: {fileID: -967288460, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -60,17 +60,17 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1306663754, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
-    - {fileID: 1485090155, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
-    - {fileID: -2090273990, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
-    - {fileID: -857928568, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
-    - {fileID: 626918204, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
-    - {fileID: -17757738, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
-    - {fileID: 1858750470, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
-    - {fileID: 1752671142, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
-    - {fileID: -1943673484, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
-    - {fileID: 782789713, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
-    - {fileID: 230294885, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+    - {fileID: 1066064573, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+    - {fileID: 1548729479, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+    - {fileID: 1299425049, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+    - {fileID: -1387651831, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+    - {fileID: 705229095, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+    - {fileID: -1080171949, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+    - {fileID: 406362205, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+    - {fileID: -1386311829, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+    - {fileID: 1161384451, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+    - {fileID: -1126480190, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
+    - {fileID: -967288460, guid: 75034bcc9ed346c48ac2afe7151ccc97, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

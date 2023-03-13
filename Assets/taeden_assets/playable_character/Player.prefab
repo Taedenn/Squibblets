@@ -178,7 +178,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f328071b265364982d11ed84d11596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  right: {fileID: 0}
+  left: {fileID: 0}
+  up: {fileID: 0}
+  down: {fileID: 0}
+  moveSpeed: 4
   collisionOffset: 0.01
   movementFilter:
     useTriggers: 0

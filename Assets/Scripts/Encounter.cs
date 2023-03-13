@@ -17,10 +17,11 @@ public class Encounter : MonoBehaviour
     [SerializeField] AudioClip loseSFX;
     [SerializeField] AudioClip button_selectSFX;
     [SerializeField] TextAsset question_file;
+
     List<GameObject> incorrect_buttons;
     GameObject correct_button;
     List<GameObject> unactive_objects;
-    AudioSource audio_player;
+    [SerializeField] AudioSource audio_player;
     ParticleSystem particles;
     SpriteRenderer enemy_renderer;
     bool isDead = false;
@@ -30,6 +31,9 @@ public class Encounter : MonoBehaviour
     bool inEncounter = false;
     float last_button_change = 0;
     float last_button_select = 0;
+    private Color originalColor;
+
+    public PlayerController playerRef;
 
     void Start() {
         question = GetRandomQuestion();
@@ -40,7 +44,6 @@ public class Encounter : MonoBehaviour
 
         enemy_renderer = gameObject.GetComponent<SpriteRenderer>();
         particles = transform.GetComponentInChildren<ParticleSystem>();
-        audio_player = GetComponent<AudioSource>();
     }
 
     void Update() 
@@ -60,17 +63,19 @@ public class Encounter : MonoBehaviour
 
         foreach (GameObject obj in unactive_objects)
             obj.SetActive(true);
+        originalColor = button1.GetComponent<Image>().color;
 
         SetButtonAnswers();
 
         correct_button.GetComponent<Button>().onClick.AddListener(Win);
 
+        player.GetComponent<PlayerController>().TerminateAnimations();
         player.GetComponent<PlayerController>().enabled = false;
     }
 
     void CheckButtonChange()
     {
-        if (Time.time - last_button_change < 0.1f)
+        if (Time.time - last_button_change < 0.4f)
             return;
 
         if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && selected_button == button1)
@@ -85,7 +90,7 @@ public class Encounter : MonoBehaviour
 
     void CheckButtonSelection()
     {
-        if (Time.time - last_button_select < 0.1f)
+        if (Time.time - last_button_select < 0.4f)
             return;
 
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) && selected_button == correct_button){
@@ -169,6 +174,12 @@ public class Encounter : MonoBehaviour
         button.GetComponent<Image>().color = Color.red;
         audio_player.PlayOneShot(loseSFX);
     }
+    void ResetButtons(Color originalColor){
+        button1.GetComponent<Image>().color = originalColor;
+        button2.GetComponent<Image>().color = originalColor;
+        button3.GetComponent<Image>().color = originalColor;
+        SetupButtons();
+    }
 
     void Win() 
     {
@@ -181,8 +192,10 @@ public class Encounter : MonoBehaviour
         player.GetComponent<PlayerController>().enabled = true;
         enemy_renderer.color = Color.red;
 
+        KillCounter(player.GetComponent<PlayerController>());
         audio_player.PlayOneShot(winSFX);
         particles.Play();
+        ResetButtons(originalColor);
         Invoke("Deletion", deletion_delay);
     }
 
@@ -191,4 +204,7 @@ public class Encounter : MonoBehaviour
         Destroy(gameObject);
     }
 
+    void KillCounter(PlayerController playerRef){
+        playerRef.killCount++;
+    }
 }
