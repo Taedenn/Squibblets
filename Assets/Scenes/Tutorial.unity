@@ -818,7 +818,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.8
+  m_fontSize: 34.75
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -894,7 +894,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235648894}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.574038, y: 0.10275984, z: -0.034114227}
+  m_LocalPosition: {x: -3.58, y: 0.11, z: -0.034114227}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -914,7 +914,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.048954427, y: -0.71706265}
+  m_Offset: {x: 0.048954427, y: -0.3733741}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -925,7 +925,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.35183704, y: 0.19292486}
+  m_Size: {x: 0.35183704, y: 0.8877642}
   m_EdgeRadius: 0
 --- !u!212 &235648897
 SpriteRenderer:
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.8
+  m_fontSize: 34.75
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3968,7 +3968,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.25
+  m_fontSize: 45.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4520,7 +4520,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.8
+  m_fontSize: 34.75
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -21972,7 +21972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875919058}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.57, y: 0.04, z: -0.034114227}
+  m_LocalPosition: {x: -0.57, y: 0.11, z: -0.034114227}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21992,7 +21992,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.048954427, y: -0.71706265}
+  m_Offset: {x: 0.048954427, y: -0.4241935}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -22003,7 +22003,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.35183704, y: 0.19292486}
+  m_Size: {x: 0.35183704, y: 0.76991534}
   m_EdgeRadius: 0
 --- !u!212 &1875919061
 SpriteRenderer:
@@ -24121,6 +24121,7 @@ MonoBehaviour:
   loseSFX: {fileID: 8300000, guid: 07392f9cebebb70458eab5f2136864e3, type: 3}
   button_selectSFX: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
   question_file: {fileID: 4900000, guid: c8ea5d19dce90b5459456c8087143921, type: 3}
+  audio_player: {fileID: 0}
   playerRef: {fileID: 0}
 --- !u!61 &2102159685
 BoxCollider2D:
