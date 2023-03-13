@@ -21,7 +21,7 @@ public class Encounter : MonoBehaviour
     List<GameObject> incorrect_buttons;
     GameObject correct_button;
     List<GameObject> unactive_objects;
-    AudioSource audio_player;
+    [SerializeField] AudioSource audio_player;
     ParticleSystem particles;
     SpriteRenderer enemy_renderer;
     bool isDead = false;
@@ -44,7 +44,6 @@ public class Encounter : MonoBehaviour
 
         enemy_renderer = gameObject.GetComponent<SpriteRenderer>();
         particles = transform.GetComponentInChildren<ParticleSystem>();
-        audio_player = GetComponent<AudioSource>();
     }
 
     void Update() 
@@ -76,7 +75,7 @@ public class Encounter : MonoBehaviour
 
     void CheckButtonChange()
     {
-        if (Time.time - last_button_change < 0.1f)
+        if (Time.time - last_button_change < 0.4f)
             return;
 
         if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && selected_button == button1)
@@ -91,7 +90,7 @@ public class Encounter : MonoBehaviour
 
     void CheckButtonSelection()
     {
-        if (Time.time - last_button_select < 0.1f)
+        if (Time.time - last_button_select < 0.4f)
             return;
 
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) && selected_button == correct_button){

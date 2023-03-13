@@ -8342,7 +8342,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.8
+  m_fontSize: 34.75
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8699,7 +8699,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.8
+  m_fontSize: 34.75
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -14843,7 +14843,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.25
+  m_fontSize: 45.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15479,7 +15479,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.8
+  m_fontSize: 34.75
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -20773,6 +20773,10 @@ PrefabInstance:
       propertyPath: button3
       value: 
       objectReference: {fileID: 875624729}
+    - target: {fileID: 591411760656179207, guid: 4d93efcbce2487848ac80656a6fe13b3, type: 3}
+      propertyPath: audio_player
+      value: 
+      objectReference: {fileID: 1510590101}
     - target: {fileID: 591411760656179207, guid: 4d93efcbce2487848ac80656a6fe13b3, type: 3}
       propertyPath: question_text_box
       value: 
@@ -40316,6 +40320,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 875624729}
     - target: {fileID: 591411760656179207, guid: 4d93efcbce2487848ac80656a6fe13b3, type: 3}
+      propertyPath: audio_player
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 4d93efcbce2487848ac80656a6fe13b3, type: 3}
       propertyPath: question_text_box
       value: 
       objectReference: {fileID: 1021322355}
@@ -40401,6 +40409,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 875624729}
     - target: {fileID: 937995895073114571, guid: 6f1716ff40f768046aa8494a4ee5e9fd, type: 3}
+      propertyPath: audio_player
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 937995895073114571, guid: 6f1716ff40f768046aa8494a4ee5e9fd, type: 3}
       propertyPath: question_text_box
       value: 
       objectReference: {fileID: 1021322355}
@@ -40482,6 +40494,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 875624729}
     - target: {fileID: 2837116581453387817, guid: f0f20fd41638f8142b15388b89a1fb08, type: 3}
+      propertyPath: audio_player
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 2837116581453387817, guid: f0f20fd41638f8142b15388b89a1fb08, type: 3}
       propertyPath: question_text_box
       value: 
       objectReference: {fileID: 1021322355}
@@ -40529,5 +40545,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2837116581453387818, guid: f0f20fd41638f8142b15388b89a1fb08, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f0f20fd41638f8142b15388b89a1fb08, type: 3}
