@@ -6,15 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    /*
     [SerializeField] GameObject button;
 
     void Start() 
     {
         button.transform.GetComponent<Button>().onClick.AddListener(StartTutorial); 
     }
-
-    void StartTutorial()
+    */
+    public void StartGame()
     {
         SceneManager.LoadScene("Main_Menu");
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitted Good");
+        Application.Quit();
     }
 }
