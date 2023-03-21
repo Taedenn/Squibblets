@@ -5925,6 +5925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 486844666}
+  canvas: {fileID: 1788882691}
   animator: {fileID: 578140908}
 --- !u!95 &578140908
 Animator:

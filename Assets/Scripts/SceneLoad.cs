@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoad : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    [SerializeField] GameObject canvas;
     PlayerController playerRef;
     public Animator animator;
     private int nextScene;
@@ -12,6 +13,7 @@ public class SceneLoad : MonoBehaviour
     void Start()
     {
         playerRef = player.GetComponent<PlayerController>();
+        canvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -19,6 +21,7 @@ public class SceneLoad : MonoBehaviour
     {
         if(playerRef.desiredKillCount == playerRef.killCount){
             nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+            canvas.SetActive(true);
             animator.SetTrigger("FadeOut");
 
         }
