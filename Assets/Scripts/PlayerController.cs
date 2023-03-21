@@ -9,18 +9,10 @@ using UnityEngine.InputSystem;
  
 public class PlayerController : MonoBehaviour
 {
-    //buttons
-    [SerializeField] GameObject right;
-    [SerializeField] GameObject left;
-    [SerializeField] GameObject up;
-    [SerializeField] GameObject down;
+
     //player assets
     SpriteRenderer player;
-    //[SerializeField] Sprite playerRight;
-    //[SerializeField] Sprite playerLeft;
-    //[SerializeField] Sprite playerFront;
-    //[SerializeField] Sprite playerBack;
-    //for animations
+
     Animator animator;
 
     public float moveSpeed = 1f;
