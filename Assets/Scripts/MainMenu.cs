@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     /*
     [SerializeField] GameObject button;
+    private int nextScene;
 
     void Start() 
     {
