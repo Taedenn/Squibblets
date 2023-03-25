@@ -56,39 +56,24 @@ public class PlayerController : MonoBehaviour
             }
             // setting animations based on movement
             else if(moveInput.x == 1){
-                    animator.SetBool("walk_left", false);
-                    animator.SetBool("walk_front", false);
-                    animator.SetBool("walk_back", false);
+                    TerminateAnimations();
                     animator.SetBool("walk_right", success);
-                    //player.sprite = playerRight;
             }
             else if(moveInput.x == -1){
-                    animator.SetBool("walk_right", false);
-                    animator.SetBool("walk_front", false);
-                    animator.SetBool("walk_back", false);
+                    TerminateAnimations();
                     animator.SetBool("walk_left", success);
-                    //player.sprite = playerLeft;
             }
             else if(moveInput.y == -1){
-                    animator.SetBool("walk_right", false);
-                    animator.SetBool("walk_left", false);
-                    animator.SetBool("walk_back", false);
+                    TerminateAnimations();
                     animator.SetBool("walk_front", success);
-                    //player.sprite = playerFront;
             }
             else if(moveInput.y == 1){
-                    animator.SetBool("walk_right", false);
-                    animator.SetBool("walk_left", false);
-                    animator.SetBool("walk_front", false);
+                    TerminateAnimations();
                     animator.SetBool("walk_back", success);
-                    //player.sprite = playerBack;
             }
         }
         else {
-            animator.SetBool("walk_right", false);
-            animator.SetBool("walk_left", false);
-            animator.SetBool("walk_front", false);
-            animator.SetBool("walk_back", false);
+            TerminateAnimations();
         }
  
     }
@@ -110,6 +95,22 @@ public class PlayerController : MonoBehaviour
             Vector2 moveVector = direction * moveSpeed * Time.fixedDeltaTime;
             // No collisions
             rb.MovePosition(rb.position + moveVector);
+            if(moveInput.x == 1){
+                                TerminateAnimations();
+                                animator.SetBool("walk_right", true);
+                        }
+                        else if(moveInput.x == -1){
+                                TerminateAnimations();
+                                animator.SetBool("walk_left", true);
+                        }
+                        else if(moveInput.y == -1){
+                                TerminateAnimations();
+                                animator.SetBool("walk_front", true);
+                        }
+                        else if(moveInput.y == 1){
+                                TerminateAnimations();
+                                animator.SetBool("walk_back", true);
+                        }
             return true;
         }
         else
