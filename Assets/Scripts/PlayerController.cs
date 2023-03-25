@@ -96,21 +96,21 @@ public class PlayerController : MonoBehaviour
             // No collisions
             rb.MovePosition(rb.position + moveVector);
             if(moveInput.x == 1){
-                                TerminateAnimations();
-                                animator.SetBool("walk_right", true);
-                        }
-                        else if(moveInput.x == -1){
-                                TerminateAnimations();
-                                animator.SetBool("walk_left", true);
-                        }
-                        else if(moveInput.y == -1){
-                                TerminateAnimations();
-                                animator.SetBool("walk_front", true);
-                        }
-                        else if(moveInput.y == 1){
-                                TerminateAnimations();
-                                animator.SetBool("walk_back", true);
-                        }
+                TerminateAnimations();
+                animator.SetBool("walk_right", true);
+            }
+            else if(moveInput.x == -1){
+                TerminateAnimations();
+                animator.SetBool("walk_left", true);
+            }
+            else if(moveInput.y == -1){
+                TerminateAnimations();
+                animator.SetBool("walk_front", true);
+            }
+            else if(moveInput.y == 1){
+                TerminateAnimations();
+                animator.SetBool("walk_back", true);
+            }
             return true;
         }
         else
