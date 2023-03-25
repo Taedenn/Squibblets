@@ -134,41 +134,53 @@ public class PlayerController : MonoBehaviour
 
     //Up button is pressed down
     public void UpIsDown(){
+        TerminateAnimations();
+        animator.SetBool("walk_back", true);
         moveInput = new Vector2(0,1);
     }
 
     //Up button is not pressed down
     public void UpIsUp(){
+        TerminateAnimations();
         moveInput = new Vector2(0,0);
     }
 
     //Down button is pressed down
     public void DownIsDown(){
+        TerminateAnimations();
+        animator.SetBool("walk_front", true);
         moveInput = new Vector2(0,-1);
     }
 
     //Down button is not pressed down
     public void DownIsUp(){
+        TerminateAnimations();
         moveInput = new Vector2(0,0);
     }
 
     //Right button is pressed down
     public void RightIsDown(){
+        TerminateAnimations();
+        animator.SetBool("walk_right", true);
         moveInput = new Vector2(1,0);
     }
 
     //Right button is not pressed down
     public void RightIsUp(){
+        TerminateAnimations();
         moveInput = new Vector2(0,0);
     }
 
     //Left button is pressed down
     public void LeftIsDown(){
+        TerminateAnimations();
+        animator.SetBool("walk_left", true);
         moveInput = new Vector2(-1,0);
     }
 
     //Left button is not pressed down
     public void LeftIsUp(){
+        TerminateAnimations();
         moveInput = new Vector2(0,0);
     }
  
