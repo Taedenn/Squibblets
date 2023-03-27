@@ -3879,8 +3879,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.028460735, y: 0.026166297}
   m_AnchorMax: {x: 0.21950002, y: 0.16073756}
-  m_AnchoredPosition: {x: 2.6900635, y: 0}
-  m_SizeDelta: {x: -20.54, y: -10}
+  m_AnchoredPosition: {x: 2.6900635, y: 13.470001}
+  m_SizeDelta: {x: -20.54, y: 11.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &663376302
 MonoBehaviour:
@@ -3929,7 +3929,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39.55
+  m_fontSize: 49.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -23815,7 +23815,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1210171915}
-  random_range: 5
   button1: {fileID: 1686967363}
   button2: {fileID: 1055140101}
   button3: {fileID: 199145512}

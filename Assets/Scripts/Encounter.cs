@@ -11,7 +11,7 @@ public class Encounter : MonoBehaviour
     PlayerController playerRef;
     [SerializeField] GameObject player;
     // Question info
-    [SerializeField] int random_range = 5;
+    int random_range = 5;
     [SerializeField] GameObject button1;
     [SerializeField] GameObject button2;
     [SerializeField] GameObject button3;
@@ -48,7 +48,8 @@ public class Encounter : MonoBehaviour
         Boss_Fight
     };
     public difficulty_level difficulty = difficulty_level.Easy;
-    
+    int digit_place;
+
 
 
     void Start() {
@@ -133,14 +134,19 @@ public class Encounter : MonoBehaviour
     {
         switch (difficulty) {
             case (difficulty_level.Easy):
+                random_range = 5;
                 return GetEasyQuestion();
             case (difficulty_level.Medium):
+                random_range = 5;
                 return GetMediumQuestion();
             case (difficulty_level.Hard):
+                random_range = 10;
                 return GetHardQuestion();
             case (difficulty_level.Very_Hard):
+                random_range = 15;
                 return GetVeryHardQuestion();
             case (difficulty_level.Super_Hard):
+                random_range = 20;
                 return GetSuperHardQuestion();
             case (difficulty_level.Boss_Fight):
                 return GetBossFightQuestion();
@@ -247,31 +253,61 @@ public class Encounter : MonoBehaviour
     string GetBossFightQuestion()
     {
         int number = Random.Range(100, 999);
-        int randomizer = Random.Range(0, 2);
+        digit_place = Random.Range(0, 3);
 
-        if (randomizer == 0)
+        if (digit_place == 0)
         {
-            return $"What number is in the one's place: {number}";
+            return $"What number is in the hundredth's place: {number}";
         }
-        else if (random_range == 1)
+        else if (digit_place == 1)
         {
             return $"What number is in the ten's place: {number}";
         }
         else
         {
-            return $"What number is in the hundredth's place: {number}";
+            return $"What number is in the ones's place: {number}";
         }
     }
 
     int GetCorrectAnswer(string question_text)
     {
+        if (difficulty == difficulty_level.Boss_Fight)
+        {
+            string[] string_array = question_text.Split();
+            string number = string_array[string_array.Length - 1];
+
+            if (digit_place == 0)
+            {
+                char number_char = number[0];
+                return (int)char.GetNumericValue(number_char);
+            }
+            else if (digit_place == 1)
+            {
+                char number_char = number[1];
+                return (int)char.GetNumericValue(number_char);
+            }
+            else
+            {
+                char number_char = number[2];
+                return (int)char.GetNumericValue(number_char);
+            }
+        }
+
         DataTable table = new DataTable();
         return System.Convert.ToInt32(table.Compute(question_text, null));
     }
     void SetupButtons()
     {
         incorrect_buttons = new List<GameObject>{button1, button2, button3};
-        correct_button = incorrect_buttons[Random.Range(0, 3)];
+
+        if (difficulty == difficulty_level.Boss_Fight) {
+            correct_button = incorrect_buttons[digit_place];
+        }
+        else 
+        {
+            correct_button = incorrect_buttons[Random.Range(0, 3)];
+        }
+
         incorrect_buttons.Remove(correct_button);
 
         selected_button = button2;
@@ -281,6 +317,40 @@ public class Encounter : MonoBehaviour
 
     void SetButtonAnswers()
     {
+        question_text_box.GetComponent<TextMeshProUGUI>().SetText(question);
+        correct_button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(correct_answer.ToString());
+
+        if (difficulty == difficulty_level.Boss_Fight)
+        {            
+            GameObject button1 = incorrect_buttons[0];
+            GameObject button2 = incorrect_buttons[1];
+
+            string[] string_array = question.Split();
+            string number = string_array[string_array.Length - 1];
+
+            if (digit_place == 0) {
+                button1.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText((number[1]).ToString());
+                button1.transform.GetComponent<Button>().onClick.AddListener(() => WrongAnswerAction(button1));
+                button2.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText((number[2]).ToString());
+                button2.transform.GetComponent<Button>().onClick.AddListener(() => WrongAnswerAction(button1));
+            }
+            else if (digit_place == 1)
+            {
+                button1.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText((number[0]).ToString());
+                button1.transform.GetComponent<Button>().onClick.AddListener(() => WrongAnswerAction(button1));
+                button2.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText((number[2]).ToString());
+                button2.transform.GetComponent<Button>().onClick.AddListener(() => WrongAnswerAction(button1));
+            }
+            else
+            {
+                button1.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText((number[0]).ToString());
+                button1.transform.GetComponent<Button>().onClick.AddListener(() => WrongAnswerAction(button1));
+                button2.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText((number[1]).ToString());
+                button2.transform.GetComponent<Button>().onClick.AddListener(() => WrongAnswerAction(button1));
+            }
+            return;
+        }
+
         List<int> nums_used = new List<int>();
         int random_number;
 
@@ -294,9 +364,6 @@ public class Encounter : MonoBehaviour
             buttonObject.transform.GetComponent<Button>().onClick.AddListener(() => WrongAnswerAction(buttonObject));
             nums_used.Add(random_number);
         }
-        
-        correct_button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(correct_answer.ToString());
-        question_text_box.GetComponent<TextMeshProUGUI>().SetText(question);
     }
 
     void WrongAnswerAction(GameObject button)
