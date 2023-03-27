@@ -3,48 +3,59 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Data;
 
 public class Encounter : MonoBehaviour
 {
+    // Player stuff
+    PlayerController playerRef;
     [SerializeField] GameObject player;
+    // Question info
     [SerializeField] int random_range = 5;
     [SerializeField] GameObject button1;
     [SerializeField] GameObject button2;
     [SerializeField] GameObject button3;
     [SerializeField] GameObject question_text_box;
+    GameObject correct_button;
+    GameObject selected_button;
+    List<GameObject> incorrect_buttons;
+    List<GameObject> unactive_objects;
+    string question;
+    int correct_answer;
+    // Winning and audio
     [SerializeField] float deletion_delay = 2f;
     [SerializeField] AudioClip winSFX;
     [SerializeField] AudioClip loseSFX;
     [SerializeField] AudioClip button_selectSFX;
-    List<GameObject> incorrect_buttons;
-    GameObject correct_button;
-    List<GameObject> unactive_objects;
     [SerializeField] AudioSource audio_player;
+    // Renderer stuff
     ParticleSystem particles;
     SpriteRenderer enemy_renderer;
     bool isDead = false;
-    string question;
-    int correct_answer;
-    GameObject selected_button;
+    // Encounter info
     bool inEncounter = false;
     float last_button_change = 0;
     float last_button_select = 0;
     private Color originalColor;
-
+    // Difficulty stuff
     public enum difficulty_level
     {
         Easy,
         Medium,
         Hard,
         Very_Hard,
+        Super_Hard,
         Boss_Fight
     };
     public difficulty_level difficulty = difficulty_level.Easy;
-    public PlayerController playerRef;
+    
+
 
     void Start() {
-        // question = GetRandomQuestion();
-        // correct_answer = GetCorrectAnswer(question);
+        playerRef = player.GetComponent<PlayerController>();
+
+        question = GetRandomQuestion();
+        correct_answer = GetCorrectAnswer(question);
 
         unactive_objects = new List<GameObject>{button1, button2, button3, question_text_box};
         SetupButtons();
@@ -118,13 +129,145 @@ public class Encounter : MonoBehaviour
         last_button_change = Time.time;
     }
 
-    // string GetRandomQuestion()
-    // {
-    //     string[] questions_array = question_file.text.Split('\n');
-    //     int random_index = Random.Range(0, questions_array.Length);
-    //     return questions_array[random_index];
-    // }
+    string GetRandomQuestion()
+    {
+        switch (difficulty) {
+            case (difficulty_level.Easy):
+                return GetEasyQuestion();
+            case (difficulty_level.Medium):
+                return GetMediumQuestion();
+            case (difficulty_level.Hard):
+                return GetHardQuestion();
+            case (difficulty_level.Very_Hard):
+                return GetVeryHardQuestion();
+            case (difficulty_level.Super_Hard):
+                return GetSuperHardQuestion();
+            case (difficulty_level.Boss_Fight):
+                return GetBossFightQuestion();
+            default:
+                return "";
+        }
+    }
+    string GetEasyQuestion() 
+    {
+        int first_number = Random.Range(0, 10);
+        int second_number = Random.Range(0, 10);
+        return $"{first_number} + {second_number}";
+    }
+    string GetMediumQuestion() 
+    {
+        int first_number = 0;
+        int second_number = 1;
 
+        while (first_number - second_number < 0) {
+            first_number = Random.Range(0, 10);
+            second_number = Random.Range(0, 10);
+        }
+        
+        return $"{first_number} - {second_number}";
+    }
+
+    string GetHardQuestion()
+    {
+        int first_number = Random.Range(0, 10);
+        int second_number = Random.Range(0, 10);
+        int third_number = Random.Range(0, 10);
+
+        char[] operands = {'+', '-'};
+        char first_operand = operands[Random.Range(0, 2)];
+        char second_operand = operands[Random.Range(0, 2)];
+
+        string question = $"{first_number} {first_operand} {second_number} {second_operand} {third_number}";
+
+        while (GetCorrectAnswer(question) < 0)
+        {
+            first_number = Random.Range(0, 10);
+            second_number = Random.Range(0, 10);
+            third_number = Random.Range(0, 10);
+
+            first_operand = operands[Random.Range(0, 2)];
+            second_operand = operands[Random.Range(0, 2)];
+
+            question = $"{first_number} {first_operand} {second_number} {second_operand} {third_number}";
+        }
+        
+        return question;
+    }
+
+    string GetVeryHardQuestion()
+    {
+        int first_number = Random.Range(0, 10);
+        int second_number = Random.Range(10, 100);
+
+        char[] operands = {'+', '-'};
+        char operand = operands[Random.Range(0, 2)];
+
+        int random_number = Random.Range(0, 2);
+
+        string question = $"{second_number} {operand} {first_number}";
+
+        while (GetCorrectAnswer(question) < 0 || GetCorrectAnswer(question) > 100) 
+        {
+            first_number = Random.Range(0, 10);
+            second_number = Random.Range(10, 100);
+
+            operand = operands[Random.Range(0, 2)];
+
+            question = $"{second_number} {operand} {first_number}";
+        }
+
+        return question;
+    }
+    string GetSuperHardQuestion()
+    {
+        int first_number = Random.Range(10, 100);
+        int second_number = Random.Range(10, 100);
+        int third_number = Random.Range(10, 100);
+
+        char[] operands = {'+', '-'};
+        char first_operand = operands[Random.Range(0, 2)];
+        char second_operand = operands[Random.Range(0, 2)];
+
+        string question = $"{first_number} {first_operand} {second_number} {second_operand} {third_number}";
+
+        while (GetCorrectAnswer(question) < 0 || GetCorrectAnswer(question) > 100) 
+        {
+            first_number = Random.Range(10, 100);
+            second_number = Random.Range(10, 100);
+            third_number = Random.Range(10, 100);
+
+            first_operand = operands[Random.Range(0, 2)];
+            second_operand = operands[Random.Range(0, 2)];
+
+            question = $"{first_number} {first_operand} {second_number} {second_operand} {third_number}";
+        }
+
+        return question;
+    }
+    string GetBossFightQuestion()
+    {
+        int number = Random.Range(100, 999);
+        int randomizer = Random.Range(0, 2);
+
+        if (randomizer == 0)
+        {
+            return $"What number is in the one's place: {number}";
+        }
+        else if (random_range == 1)
+        {
+            return $"What number is in the ten's place: {number}";
+        }
+        else
+        {
+            return $"What number is in the hundredth's place: {number}";
+        }
+    }
+
+    int GetCorrectAnswer(string question_text)
+    {
+        DataTable table = new DataTable();
+        return System.Convert.ToInt32(table.Compute(question_text, null));
+    }
     void SetupButtons()
     {
         incorrect_buttons = new List<GameObject>{button1, button2, button3};
@@ -134,26 +277,6 @@ public class Encounter : MonoBehaviour
         selected_button = button2;
         button1.transform.Find("Border").GetComponent<SpriteRenderer>().enabled = false;
         button3.transform.Find("Border").GetComponent<SpriteRenderer>().enabled = false;        
-    }
-
-    int GetCorrectAnswer(string question_text)
-    {
-        string[] question_parts = question_text.Split(' ');
-
-        int first_number = int.Parse(question_parts[0]);
-        char op = question_parts[1][0];
-        int second_number = int.Parse(question_parts[2]);
-
-        if (op == '+')
-            return first_number + second_number;
-        if (op == '-')
-            return first_number - second_number;
-        if (op == '*')
-            return first_number * second_number;
-        if (op == '/')
-            return first_number / second_number;
-
-        return -1;
     }
 
     void SetButtonAnswers()
@@ -196,10 +319,10 @@ public class Encounter : MonoBehaviour
         foreach (GameObject obj in unactive_objects)
             obj.SetActive(false);
 
-        player.GetComponent<PlayerController>().enabled = true;
+        playerRef.enabled = true;
         enemy_renderer.color = Color.red;
 
-        KillCounter(player.GetComponent<PlayerController>());
+        KillCounter(playerRef);
         audio_player.PlayOneShot(winSFX);
         particles.Play();
         ResetButtons(originalColor);
