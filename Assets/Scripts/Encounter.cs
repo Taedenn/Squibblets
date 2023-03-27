@@ -16,8 +16,6 @@ public class Encounter : MonoBehaviour
     [SerializeField] AudioClip winSFX;
     [SerializeField] AudioClip loseSFX;
     [SerializeField] AudioClip button_selectSFX;
-    [SerializeField] TextAsset question_file;
-
     List<GameObject> incorrect_buttons;
     GameObject correct_button;
     List<GameObject> unactive_objects;
@@ -33,11 +31,20 @@ public class Encounter : MonoBehaviour
     float last_button_select = 0;
     private Color originalColor;
 
+    public enum difficulty_level
+    {
+        Easy,
+        Medium,
+        Hard,
+        Very_Hard,
+        Boss_Fight
+    };
+    public difficulty_level difficulty = difficulty_level.Easy;
     public PlayerController playerRef;
 
     void Start() {
-        question = GetRandomQuestion();
-        correct_answer = GetCorrectAnswer(question);
+        // question = GetRandomQuestion();
+        // correct_answer = GetCorrectAnswer(question);
 
         unactive_objects = new List<GameObject>{button1, button2, button3, question_text_box};
         SetupButtons();
@@ -111,12 +118,12 @@ public class Encounter : MonoBehaviour
         last_button_change = Time.time;
     }
 
-    string GetRandomQuestion()
-    {
-        string[] questions_array = question_file.text.Split('\n');
-        int random_index = Random.Range(0, questions_array.Length);
-        return questions_array[random_index];
-    }
+    // string GetRandomQuestion()
+    // {
+    //     string[] questions_array = question_file.text.Split('\n');
+    //     int random_index = Random.Range(0, questions_array.Length);
+    //     return questions_array[random_index];
+    // }
 
     void SetupButtons()
     {
