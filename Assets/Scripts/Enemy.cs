@@ -264,15 +264,15 @@ public class Enemy : MonoBehaviour
 
         if (digit_place == 0)
         {
-            return $"What number is in the hundredth's place: {number}";
+            return $"What is in the hundredth's place: {number}";
         }
         else if (digit_place == 1)
         {
-            return $"What number is in the ten's place: {number}";
+            return $"What is in the ten's place: {number}";
         }
         else
         {
-            return $"What number is in the ones's place: {number}";
+            return $"What is in the one's place: {number}";
         }
     }
 
