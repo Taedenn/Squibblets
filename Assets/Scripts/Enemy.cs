@@ -123,6 +123,7 @@ public class Enemy : MonoBehaviour
 
     void ChangeButton(GameObject button)
     {
+        Debug.Log(selected_button.transform.Find("Border"));
         selected_button.transform.Find("Border").GetComponent<SpriteRenderer>().enabled = false;
         button.transform.Find("Border").GetComponent<SpriteRenderer>().enabled = true;
         audio_player.PlayOneShot(button_selectSFX);
