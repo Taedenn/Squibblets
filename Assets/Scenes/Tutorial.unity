@@ -819,7 +819,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.8
+  m_fontSize: 31.1
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.8
+  m_fontSize: 31.1
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3878,9 +3878,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.028460735, y: 0.026166297}
-  m_AnchorMax: {x: 0.21950002, y: 0.16073756}
-  m_AnchoredPosition: {x: 2.6900635, y: 0}
-  m_SizeDelta: {x: -20.54, y: -10}
+  m_AnchorMax: {x: 0.22825001, y: 0.22800002}
+  m_AnchoredPosition: {x: -0.8099365, y: -0.02999878}
+  m_SizeDelta: {x: -27.54, y: -15.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &663376302
 MonoBehaviour:
@@ -3929,7 +3929,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.25
+  m_fontSize: 49.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4397,7 +4397,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.8
+  m_fontSize: 31.1
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -23815,7 +23815,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1210171915}
-  random_range: 5
   button1: {fileID: 1686967363}
   button2: {fileID: 1055140101}
   button3: {fileID: 199145512}
@@ -23824,9 +23823,8 @@ MonoBehaviour:
   winSFX: {fileID: 8300000, guid: 54395fd2403c204409700488d7e1cac9, type: 3}
   loseSFX: {fileID: 8300000, guid: 07392f9cebebb70458eab5f2136864e3, type: 3}
   button_selectSFX: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
-  question_file: {fileID: 4900000, guid: c8ea5d19dce90b5459456c8087143921, type: 3}
   audio_player: {fileID: 1797143088}
-  playerRef: {fileID: 0}
+  difficulty: 5
 --- !u!61 &2102159685
 BoxCollider2D:
   m_ObjectHideFlags: 0
