@@ -7,10 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] Button playButton;
-    [SerializeField] Button statsButton;
+    [SerializeField] GameObject playButton;
+    [SerializeField] GameObject statsButton;
     [SerializeField] GameObject logo;
-    [SerializeField] GameObject DecisionPanel;
+    [SerializeField] GameObject decisionPanel;
+    [SerializeField] GameObject studentLoginPanel;
+    [SerializeField] GameObject teacherLoginPanel;
+    [SerializeField] GameObject spaceShip;
 
     /*
     [SerializeField] GameObject button;
@@ -23,7 +26,9 @@ public class MainMenu : MonoBehaviour
     */
     void Start()
     {
-        DecisionPanel.SetActive(false);
+        decisionPanel.SetActive(false);
+        studentLoginPanel.SetActive(false);
+        teacherLoginPanel.SetActive(false);
     }
     public void StartGame()
     {
@@ -44,16 +49,40 @@ public class MainMenu : MonoBehaviour
     public void StatsButton()
     {
         logo.SetActive(false);
-        DecisionPanel.SetActive(true);
-        playButton.interactable = false;
-        statsButton.interactable = false;
+        decisionPanel.SetActive(true);
+        playButton.SetActive(false);
+        statsButton.SetActive(false);
     }
 
-    public void BackButton()
+    public void DecisionBackButton()
     {
-        DecisionPanel.SetActive(false);
+        decisionPanel.SetActive(false);
         logo.SetActive(true);
-        playButton.interactable = true;
-        statsButton.interactable = true;
+        playButton.SetActive(true);
+        statsButton.SetActive(true);
+    }
+
+    public void StudentButton()
+    {
+        spaceShip.SetActive(false);
+        decisionPanel.SetActive(false);
+        studentLoginPanel.SetActive(true);
+    }
+
+    public void TeacherButton()
+    {
+        spaceShip.SetActive(false);
+        decisionPanel.SetActive(false);
+        teacherLoginPanel.SetActive(true);
+    }
+
+    public void LoginBackButton()
+    {
+        studentLoginPanel.SetActive(false);
+        teacherLoginPanel.SetActive(false);
+        logo.SetActive(true);
+        spaceShip.SetActive(true);
+        playButton.SetActive(true);
+        statsButton.SetActive(true);
     }
 }
