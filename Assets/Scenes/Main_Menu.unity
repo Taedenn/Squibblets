@@ -955,7 +955,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1749648046}
         m_TargetAssemblyTypeName: PlayfabManager, Assembly-CSharp
         m_MethodName: registerButton
         m_Mode: 1
@@ -1068,7 +1068,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2035237254}
         m_TargetAssemblyTypeName: PlayfabManager, Assembly-CSharp
         m_MethodName: registerButton
         m_Mode: 1
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1749648046}
         m_TargetAssemblyTypeName: PlayfabManager, Assembly-CSharp
         m_MethodName: resetPasswordButton
         m_Mode: 1
@@ -6120,7 +6120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2035237254}
         m_TargetAssemblyTypeName: PlayfabManager, Assembly-CSharp
         m_MethodName: loginButton
         m_Mode: 1
@@ -7092,7 +7092,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2035237254}
         m_TargetAssemblyTypeName: PlayfabManager, Assembly-CSharp
         m_MethodName: resetPasswordButton
         m_Mode: 1
@@ -7415,7 +7415,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1749648046}
         m_TargetAssemblyTypeName: PlayfabManager, Assembly-CSharp
         m_MethodName: loginButton
         m_Mode: 1
