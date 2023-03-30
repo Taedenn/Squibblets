@@ -12,8 +12,11 @@ public class PlayerController : MonoBehaviour
 
     //player assets
     SpriteRenderer player;
-
     Animator animator;
+    [SerializeField] Sprite playerRight;
+    [SerializeField] Sprite playerLeft;
+    [SerializeField] Sprite playerFront;
+    [SerializeField] Sprite playerBack;
 
     public float moveSpeed = 1f;
     public float collisionOffset = 0.05f;
@@ -58,18 +61,22 @@ public class PlayerController : MonoBehaviour
             else if(moveInput.x == 1){
                     TerminateAnimations();
                     animator.SetBool("walk_right", success);
+                    Invoke("RestingRight", animator.GetCurrentAnimatorStateInfo(0).length);
             }
             else if(moveInput.x == -1){
                     TerminateAnimations();
                     animator.SetBool("walk_left", success);
+                    Invoke("RestingLeft", animator.GetCurrentAnimatorStateInfo(0).length);
             }
             else if(moveInput.y == -1){
                     TerminateAnimations();
                     animator.SetBool("walk_front", success);
+                    Invoke("RestingFront", animator.GetCurrentAnimatorStateInfo(0).length);
             }
             else if(moveInput.y == 1){
                     TerminateAnimations();
                     animator.SetBool("walk_back", success);
+                    Invoke("RestingBack", animator.GetCurrentAnimatorStateInfo(0).length);
             }
         }
         else {
@@ -93,24 +100,7 @@ public class PlayerController : MonoBehaviour
         if (count == 0)
         {
             Vector2 moveVector = direction * moveSpeed * Time.fixedDeltaTime;
-            // No collisions
             rb.MovePosition(rb.position + moveVector);
-            if(moveInput.x == 1){
-                TerminateAnimations();
-                animator.SetBool("walk_right", true);
-            }
-            else if(moveInput.x == -1){
-                TerminateAnimations();
-                animator.SetBool("walk_left", true);
-            }
-            else if(moveInput.y == -1){
-                TerminateAnimations();
-                animator.SetBool("walk_front", true);
-            }
-            else if(moveInput.y == 1){
-                TerminateAnimations();
-                animator.SetBool("walk_back", true);
-            }
             return true;
         }
         else
@@ -129,6 +119,23 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("walk_left", false);
         animator.SetBool("walk_front", false);
         animator.SetBool("walk_back", false);
+    }
+
+    //Following methods set the player sprite according to movement
+    private void RestingRight(){
+        player.sprite = playerRight;
+    }
+
+    private void RestingLeft(){
+        player.sprite = playerLeft;
+    }
+
+    private void RestingFront(){
+        player.sprite = playerFront;
+    }
+
+    private void RestingBack(){
+        player.sprite = playerBack;
     }
 
     //Following methods set up moveInput for buttons on screen

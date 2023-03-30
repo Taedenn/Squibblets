@@ -178,12 +178,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f328071b265364982d11ed84d11596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  right: {fileID: 0}
-  left: {fileID: 0}
-  up: {fileID: 0}
-  down: {fileID: 0}
+  playerRight: {fileID: 21300000, guid: 0368c6908ac093e4b84915eea85da185, type: 3}
+  playerLeft: {fileID: 21300000, guid: 097c9d2f30149d14d8ce64f7d30c089a, type: 3}
+  playerFront: {fileID: 21300000, guid: 8ebbe206deeff604d8a9bba5c1f34833, type: 3}
+  playerBack: {fileID: 21300000, guid: e1e8378f6e94da543a67cf8d30984876, type: 3}
   moveSpeed: 4
   collisionOffset: 0.01
+  desiredKillCount: 1
+  killCount: 0
   movementFilter:
     useTriggers: 0
     useLayerMask: 0
