@@ -12402,6 +12402,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1119330254}
     m_Modifications:
+    - target: {fileID: 937995895073114570, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
       propertyPath: player
       value: 
@@ -14123,7 +14127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &550396105
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14132,7 +14136,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550396104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1445.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26740,7 +26744,7 @@ Transform:
   m_GameObject: {fileID: 1008534740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -54731.13}
-  m_LocalScale: {x: 56.243904, y: 56.243904, z: 56.243904}
+  m_LocalScale: {x: 56.2439, y: 56.243904, z: 56.243904}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1865916112}
@@ -26781,7 +26785,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
