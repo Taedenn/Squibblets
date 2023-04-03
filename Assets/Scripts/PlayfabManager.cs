@@ -66,31 +66,32 @@ public class PlayfabManager : MonoBehaviour
     void OnPasswordReset(SendAccountRecoveryEmailResult result) {
         messageText.text = "Password reset email sent";
     }
-    // public void SendLeaderoard(int score) {
-    //     var request = new UpdatePlayerStatisticsRequest {
-    //         Statistics = new List<StatisticUpdate>{
-    //             new StatisticUpdate {
-    //                 StatisticName = "Player score",
-    //                 Value = score
-    //             }
-    //         }
-    //     };
-    //     PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderoardUpdate, OnError);
-    // }
-    // void OnLeaderoardUpdate(UpdatePlayerStatisticsResult result) {
-    //     Debug.Log("Successful leaderboard sent!");
-    // }
-    // public void getLeaderboard() {
-    //     var request = new GetLeaderboardRequest {
-    //         StatisticName = "Player score",
-    //         StartPosition = 0,
-    //         MaxResultsCount = 10
-    //     };
-    //     PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
-    // }
-    // void OnLeaderboardGet(GetLeaderboardResult result) {
-    //     foreach(var item in result.Leaderboard) {
-    //         Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
-    //     }
-    // }
+    public void SendLeaderoard(int score) {
+        var request = new UpdatePlayerStatisticsRequest {
+            Statistics = new List<StatisticUpdate>{
+                new StatisticUpdate {
+                    StatisticName = "Player score",
+                    Value = score
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderoardUpdate, OnError);
+    }
+    void OnLeaderoardUpdate(UpdatePlayerStatisticsResult result) {
+        Debug.Log("Successful leaderboard sent!");
+    }
+    public void getLeaderboard() {
+        var request = new GetLeaderboardRequest {
+            StatisticName = "Player score",
+            StartPosition = 0,
+            MaxResultsCount = 30
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
+    }
+    void OnLeaderboardGet(GetLeaderboardResult result) {
+        foreach(var item in result.Leaderboard) {
+            Debug.Log(item.PlayFabId);
+            Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
+        }
+    }
 }

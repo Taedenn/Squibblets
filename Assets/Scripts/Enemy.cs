@@ -276,7 +276,6 @@ public class Enemy : MonoBehaviour
             return $"What is in the one's place: {number}";
         }
     }
-
     int GetCorrectAnswer(string question_text)
     {
         if (difficulty == difficulty_level.Boss_Fight)
@@ -378,6 +377,7 @@ public class Enemy : MonoBehaviour
     {
         button.GetComponent<Image>().color = Color.red;
         audio_player.PlayOneShot(loseSFX);
+        player.GetComponent<PlayerScoreTracker>().AddMistake();
     }
     void ResetButtons(Color originalColor){
         button1.GetComponent<Image>().color = originalColor;
