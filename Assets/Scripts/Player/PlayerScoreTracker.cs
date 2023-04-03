@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerScoreTracker : MonoBehaviour
 {
     int mistakes = 0;
-
+    
     public void AddMistake() {
         mistakes++;
     }

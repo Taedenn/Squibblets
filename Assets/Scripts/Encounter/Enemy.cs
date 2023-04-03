@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     PlayerController playerRef;
     [SerializeField] GameObject player;
     // Question info
-    int random_range = 5;
+    int random_range;
     [SerializeField] GameObject button1;
     [SerializeField] GameObject button2;
     [SerializeField] GameObject button3;
@@ -39,13 +39,13 @@ public class Enemy : MonoBehaviour
     private Color originalColor;
     // Difficulty stuff
     public QuestionSetup.difficulty_level difficulty = QuestionSetup.difficulty_level.Easy;
-    int digit_place;
 
     void Start() {
         playerRef = player.GetComponent<PlayerController>();
 
         question = QuestionSetup.GetRandomQuestion(difficulty);
         correct_answer = QuestionSetup.GetCorrectAnswer(question, difficulty);
+        random_range = QuestionSetup.GetRandomRange(difficulty);
 
         unactive_objects = new List<GameObject>{button1, button2, button3, question_text_box};
         SetupButtons();
@@ -123,15 +123,7 @@ public class Enemy : MonoBehaviour
     void SetupButtons()
     {
         incorrect_buttons = new List<GameObject>{button1, button2, button3};
-
-        if (difficulty == QuestionSetup.difficulty_level.Boss_Fight) {
-            correct_button = incorrect_buttons[digit_place];
-        }
-        else 
-        {
-            correct_button = incorrect_buttons[Random.Range(0, 3)];
-        }
-
+        correct_button = incorrect_buttons[Random.Range(0, 3)];
         incorrect_buttons.Remove(correct_button);
 
         selected_button = button2;
@@ -152,13 +144,13 @@ public class Enemy : MonoBehaviour
             string[] string_array = question.Split();
             string number = string_array[string_array.Length - 1];
 
-            if (digit_place == 0) {
+            if (question.Contains("hundred")) {
                 button1.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText((number[1]).ToString());
                 button1.transform.GetComponent<Button>().onClick.AddListener(() => WrongAnswerAction(button1));
                 button2.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText((number[2]).ToString());
                 button2.transform.GetComponent<Button>().onClick.AddListener(() => WrongAnswerAction(button1));
             }
-            else if (digit_place == 1)
+            else if (question.Contains("ten"))
             {
                 button1.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText((number[0]).ToString());
                 button1.transform.GetComponent<Button>().onClick.AddListener(() => WrongAnswerAction(button1));

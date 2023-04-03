@@ -182,4 +182,20 @@ public class QuestionSetup : MonoBehaviour
         DataTable table = new DataTable();
         return System.Convert.ToInt32(table.Compute(question_text, null));
     }
+    public static int GetRandomRange(difficulty_level difficulty)
+    {
+        switch(difficulty) 
+        {
+            case QuestionSetup.difficulty_level.Medium:
+                return 5;
+            case QuestionSetup.difficulty_level.Hard:
+                return 10;
+            case QuestionSetup.difficulty_level.Very_Hard:
+                return 15;
+            case QuestionSetup.difficulty_level.Super_Hard:
+                return 20;
+            default:
+                return 5;
+        }
+    }
 }

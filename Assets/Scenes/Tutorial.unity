@@ -25555,7 +25555,7 @@ MonoBehaviour:
   loseSFX: {fileID: 8300000, guid: 07392f9cebebb70458eab5f2136864e3, type: 3}
   button_selectSFX: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
   audio_player: {fileID: 1797143088}
-  difficulty: 0
+  difficulty: 2
 --- !u!61 &2102159685
 BoxCollider2D:
   m_ObjectHideFlags: 0
