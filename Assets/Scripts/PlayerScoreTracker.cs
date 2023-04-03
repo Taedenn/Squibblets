@@ -8,6 +8,5 @@ public class PlayerScoreTracker : MonoBehaviour
 
     public void AddMistake() {
         mistakes++;
-        Debug.Log(mistakes);
     }
 }

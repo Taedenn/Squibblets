@@ -38,25 +38,14 @@ public class Enemy : MonoBehaviour
     float last_button_select = 0;
     private Color originalColor;
     // Difficulty stuff
-    public enum difficulty_level
-    {
-        Easy,
-        Medium,
-        Hard,
-        Very_Hard,
-        Super_Hard,
-        Boss_Fight
-    };
-    public difficulty_level difficulty = difficulty_level.Easy;
+    public QuestionSetup.difficulty_level difficulty = QuestionSetup.difficulty_level.Easy;
     int digit_place;
-
-
 
     void Start() {
         playerRef = player.GetComponent<PlayerController>();
 
-        question = GetRandomQuestion();
-        correct_answer = GetCorrectAnswer(question);
+        question = QuestionSetup.GetRandomQuestion(difficulty);
+        correct_answer = QuestionSetup.GetCorrectAnswer(question, difficulty);
 
         unactive_objects = new List<GameObject>{button1, button2, button3, question_text_box};
         SetupButtons();
@@ -131,183 +120,11 @@ public class Enemy : MonoBehaviour
         last_button_change = Time.time;
     }
 
-    string GetRandomQuestion()
-    {
-        switch (difficulty) {
-            case (difficulty_level.Easy):
-                random_range = 5;
-                return GetEasyQuestion();
-            case (difficulty_level.Medium):
-                random_range = 5;
-                return GetMediumQuestion();
-            case (difficulty_level.Hard):
-                random_range = 10;
-                return GetHardQuestion();
-            case (difficulty_level.Very_Hard):
-                random_range = 15;
-                return GetVeryHardQuestion();
-            case (difficulty_level.Super_Hard):
-                random_range = 20;
-                return GetSuperHardQuestion();
-            case (difficulty_level.Boss_Fight):
-                return GetBossFightQuestion();
-            default:
-                return "";
-        }
-    }
-    string GetEasyQuestion() 
-    {
-        int first_number = Random.Range(0, 10);
-        int second_number = Random.Range(0, 10);
-        return $"{first_number} + {second_number}";
-    }
-    string GetMediumQuestion() 
-    {
-        int first_number = 0;
-        int second_number = 1;
-
-        while (first_number - second_number < 0) {
-            first_number = Random.Range(0, 10);
-            second_number = Random.Range(0, 10);
-        }
-        
-        return $"{first_number} - {second_number}";
-    }
-
-    string GetHardQuestion()
-    {
-        int first_number = Random.Range(0, 10);
-        int second_number = Random.Range(0, 10);
-        int third_number = Random.Range(0, 10);
-
-        char[] operands = {'+', '-'};
-        char first_operand = operands[Random.Range(0, 2)];
-        char second_operand = operands[Random.Range(0, 2)];
-
-        string question = $"{first_number} {first_operand} {second_number} {second_operand} {third_number}";
-
-        while (GetCorrectAnswer(question) < 0)
-        {
-            first_number = Random.Range(0, 10);
-            second_number = Random.Range(0, 10);
-            third_number = Random.Range(0, 10);
-
-            first_operand = operands[Random.Range(0, 2)];
-            second_operand = operands[Random.Range(0, 2)];
-
-            question = $"{first_number} {first_operand} {second_number} {second_operand} {third_number}";
-        }
-        
-        return question;
-    }
-
-    string GetVeryHardQuestion()
-    {
-        int first_number = Random.Range(0, 10);
-        int second_number = Random.Range(10, 100);
-
-        char[] operands = {'+', '-'};
-        char operand = operands[Random.Range(0, 2)];
-
-        int random_number = Random.Range(0, 2);
-
-        string question = $"{second_number} {operand} {first_number}";
-
-        while (GetCorrectAnswer(question) < 0 || GetCorrectAnswer(question) > 100) 
-        {
-            first_number = Random.Range(0, 10);
-            second_number = Random.Range(10, 100);
-
-            operand = operands[Random.Range(0, 2)];
-
-            question = $"{second_number} {operand} {first_number}";
-        }
-
-        return question;
-    }
-    string GetSuperHardQuestion()
-    {
-        int first_number = Random.Range(10, 100);
-        int second_number = Random.Range(10, 100);
-        int third_number = Random.Range(10, 100);
-
-        char[] operands = {'+', '-'};
-        char first_operand = operands[Random.Range(0, 2)];
-        char second_operand = operands[Random.Range(0, 2)];
-
-        string question = $"{first_number} {first_operand} {second_number} {second_operand} {third_number}";
-
-        while (GetCorrectAnswer(question) < 0 || GetCorrectAnswer(question) > 100) 
-        {
-            first_number = Random.Range(10, 100);
-            second_number = Random.Range(10, 100);
-            third_number = Random.Range(10, 100);
-
-            first_operand = operands[Random.Range(0, 2)];
-            second_operand = operands[Random.Range(0, 2)];
-
-            question = $"{first_number} {first_operand} {second_number} {second_operand} {third_number}";
-        }
-
-        return question;
-    }
-    string GetBossFightQuestion()
-    {
-        int number = Random.Range(100, 999);
-
-        // Ensure that no digit repeats
-        while (number.ToString().Length != new HashSet<char>(number.ToString()).Count)
-        {
-            number = Random.Range(100, 999);
-        }
-
-        digit_place = Random.Range(0, 3);
-
-        if (digit_place == 0)
-        {
-            return $"What is in the hundredth's place: {number}";
-        }
-        else if (digit_place == 1)
-        {
-            return $"What is in the ten's place: {number}";
-        }
-        else
-        {
-            return $"What is in the one's place: {number}";
-        }
-    }
-    int GetCorrectAnswer(string question_text)
-    {
-        if (difficulty == difficulty_level.Boss_Fight)
-        {
-            string[] string_array = question_text.Split();
-            string number = string_array[string_array.Length - 1];
-
-            if (digit_place == 0)
-            {
-                char number_char = number[0];
-                return (int)char.GetNumericValue(number_char);
-            }
-            else if (digit_place == 1)
-            {
-                char number_char = number[1];
-                return (int)char.GetNumericValue(number_char);
-            }
-            else
-            {
-                char number_char = number[2];
-                return (int)char.GetNumericValue(number_char);
-            }
-        }
-
-        DataTable table = new DataTable();
-        return System.Convert.ToInt32(table.Compute(question_text, null));
-    }
     void SetupButtons()
     {
         incorrect_buttons = new List<GameObject>{button1, button2, button3};
 
-        if (difficulty == difficulty_level.Boss_Fight) {
+        if (difficulty == QuestionSetup.difficulty_level.Boss_Fight) {
             correct_button = incorrect_buttons[digit_place];
         }
         else 
@@ -327,7 +144,7 @@ public class Enemy : MonoBehaviour
         question_text_box.GetComponent<TextMeshProUGUI>().SetText(question);
         correct_button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(correct_answer.ToString());
 
-        if (difficulty == difficulty_level.Boss_Fight)
+        if (difficulty == QuestionSetup.difficulty_level.Boss_Fight)
         {            
             GameObject button1 = incorrect_buttons[0];
             GameObject button2 = incorrect_buttons[1];
