@@ -12,8 +12,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject logo;
     [SerializeField] GameObject decisionPanel;
     [SerializeField] GameObject studentLoginPanel;
-    [SerializeField] GameObject teacherLoginPanel;
     [SerializeField] GameObject spaceShip;
+    [SerializeField] GameObject leaderboardPanel;
 
     /*
     [SerializeField] GameObject button;
@@ -28,7 +28,7 @@ public class MainMenu : MonoBehaviour
     {
         decisionPanel.SetActive(false);
         studentLoginPanel.SetActive(false);
-        teacherLoginPanel.SetActive(false);
+        leaderboardPanel.SetActive(false);
     }
     public void StartGame()
     {
@@ -73,13 +73,13 @@ public class MainMenu : MonoBehaviour
     {
         spaceShip.SetActive(false);
         decisionPanel.SetActive(false);
-        teacherLoginPanel.SetActive(true);
+        leaderboardPanel.SetActive(true);
     }
 
     public void LoginBackButton()
     {
         studentLoginPanel.SetActive(false);
-        teacherLoginPanel.SetActive(false);
+        leaderboardPanel.SetActive(false);
         logo.SetActive(true);
         spaceShip.SetActive(true);
         playButton.SetActive(true);

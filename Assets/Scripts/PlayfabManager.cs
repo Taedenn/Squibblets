@@ -8,6 +8,9 @@ using TMPro;
 
 public class PlayfabManager : MonoBehaviour
 {
+    public GameObject rowPrefab;
+    public Transform rowsParent;
+
     [Header("UI")]
     public TMP_Text messageText;
     public TMP_InputField emailInput;
@@ -89,7 +92,16 @@ public class PlayfabManager : MonoBehaviour
         PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
     }
     void OnLeaderboardGet(GetLeaderboardResult result) {
+        
+
         foreach(var item in result.Leaderboard) {
+
+            GameObject newGo = Instantiate(rowPrefab, rowsParent);
+            TextMeshPro[] texts = newGo.GetComponentsInChildren<TextMeshPro>();
+            texts[0].text = item.Position.ToString();
+            texts[1].text = item.PlayFabId;
+            texts[0].text = item.StatValue.ToString();
+
             Debug.Log(item.PlayFabId);
             Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
         }
