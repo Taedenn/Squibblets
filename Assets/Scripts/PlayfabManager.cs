@@ -78,9 +78,9 @@ public class PlayfabManager : MonoBehaviour
                 }
             }
         };
-        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderoardUpdate, OnError);
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
     }
-    void OnLeaderoardUpdate(UpdatePlayerStatisticsResult result) {
+    void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result) {
         Debug.Log("Successful leaderboard sent!");
     }
     public void getLeaderboard() {
@@ -98,7 +98,7 @@ public class PlayfabManager : MonoBehaviour
 
             GameObject newGo = Instantiate(rowPrefab, rowsParent);
             TextMeshPro[] texts = newGo.GetComponentsInChildren<TextMeshPro>();
-            texts[0].text = item.Position.ToString();
+            texts[0].text = (item.Position + 1).ToString();
             texts[1].text = item.PlayFabId;
             texts[0].text = item.StatValue.ToString();
 
