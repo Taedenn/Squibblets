@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
+using PlayFab;
 
 
 public class MainMenu : MonoBehaviour
@@ -11,9 +13,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject statsButton;
     [SerializeField] GameObject logo;
     [SerializeField] GameObject decisionPanel;
-    [SerializeField] GameObject studentLoginPanel;
-    [SerializeField] GameObject teacherLoginPanel;
+    [SerializeField] TMP_Text failText;
+    [SerializeField] GameObject LoginPanel;
+    [SerializeField] GameObject UsernamePanel;
     [SerializeField] GameObject spaceShip;
+    [SerializeField] GameObject leaderboardPanel;
 
     /*
     [SerializeField] GameObject button;
@@ -27,8 +31,8 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         decisionPanel.SetActive(false);
-        studentLoginPanel.SetActive(false);
-        teacherLoginPanel.SetActive(false);
+        LoginPanel.SetActive(false);
+        leaderboardPanel.SetActive(false);
     }
     public void StartGame()
     {
@@ -60,26 +64,37 @@ public class MainMenu : MonoBehaviour
         logo.SetActive(true);
         playButton.SetActive(true);
         statsButton.SetActive(true);
+        failText.text = "";
     }
 
-    public void StudentButton()
+    public void LoginButton()
     {
         spaceShip.SetActive(false);
         decisionPanel.SetActive(false);
-        studentLoginPanel.SetActive(true);
+        LoginPanel.SetActive(true);
     }
 
-    public void TeacherButton()
+    public void ScoresButton()
     {
         spaceShip.SetActive(false);
         decisionPanel.SetActive(false);
-        teacherLoginPanel.SetActive(true);
+        leaderboardPanel.SetActive(true);
+
+        try {
+            gameObject.GetComponent<PlayfabManager>().getLeaderboard();
+        } 
+        catch (PlayFabException) {
+            leaderboardPanel.SetActive(false);
+            decisionPanel.SetActive(true);
+            spaceShip.SetActive(true);
+            failText.text = "Must login first!";
+        }
     }
 
     public void LoginBackButton()
     {
-        studentLoginPanel.SetActive(false);
-        teacherLoginPanel.SetActive(false);
+        LoginPanel.SetActive(false);
+        leaderboardPanel.SetActive(false);
         logo.SetActive(true);
         spaceShip.SetActive(true);
         playButton.SetActive(true);

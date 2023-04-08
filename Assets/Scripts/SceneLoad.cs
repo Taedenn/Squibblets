@@ -1,29 +1,29 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using PlayFab;
 
 
 public class SceneLoad : MonoBehaviour
 {
-    [SerializeField] GameObject player;
     [SerializeField] GameObject canvas;
-    PlayerController playerRef;
     public Animator animator;
     private int nextScene;
-    // Start is called before the first frame update
     void Start()
     {
-        playerRef = player.GetComponent<PlayerController>();
         canvas.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CheckLevelCompletion(int killCount, int desiredKillCount, int mistakes)
     {
-        if(playerRef.desiredKillCount == playerRef.killCount){
+        if(desiredKillCount == killCount){
             nextScene = SceneManager.GetActiveScene().buildIndex + 1;
             canvas.SetActive(true);
             animator.SetTrigger("FadeOut");
 
+            try {
+                gameObject.GetComponent<PlayfabManager>().SendLeaderboard(mistakes);
+            }
+            catch(PlayFabException) {}
         }
     }
     public void OnFadeComplete(){
