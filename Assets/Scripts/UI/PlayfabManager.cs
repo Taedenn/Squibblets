@@ -5,12 +5,10 @@ using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayfabManager : MonoBehaviour
 {
-    public GameObject rowPrefab;
-    public Transform rowsParent;
-
     [Header("Login UI")]
     public TMP_Text messageText;
     public TMP_InputField emailInput;
@@ -18,6 +16,10 @@ public class PlayfabManager : MonoBehaviour
     [Header("Username")]
     public GameObject usernamePanel;
     public TMP_InputField nameInput;
+    [Header("Leaderboard")]
+    public TMP_Dropdown leaderboardDropdown;
+    public GameObject rowPrefab;
+    public Transform rowsParent;
     
     public void registerButton() {
         var request = new RegisterPlayFabUserRequest {
@@ -100,7 +102,7 @@ public class PlayfabManager : MonoBehaviour
         var request = new UpdatePlayerStatisticsRequest {
             Statistics = new List<StatisticUpdate>{
                 new StatisticUpdate {
-                    StatisticName = "Player scores",
+                    StatisticName = SceneManager.GetActiveScene().name,
                     Value = score
                 }
             }
@@ -111,8 +113,11 @@ public class PlayfabManager : MonoBehaviour
         Debug.Log("Successful leaderboard sent!");
     }
     public void getLeaderboard() {
+        int index = leaderboardDropdown.value;
+        List<TMP_Dropdown.OptionData> options = leaderboardDropdown.options;
+
         var request = new GetLeaderboardRequest {
-            StatisticName = "Player scores",
+            StatisticName = options[index].text,
             StartPosition = 0,
             MaxResultsCount = 30
         };

@@ -15,25 +15,14 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject decisionPanel;
     [SerializeField] TMP_Text failText;
     [SerializeField] GameObject LoginPanel;
-    [SerializeField] GameObject UsernamePanel;
+    [SerializeField] GameObject usernamePanel;
+    [SerializeField] GameObject scoreSelectPanel;
     [SerializeField] GameObject spaceShip;
+    [Header ("Leaderboard")]
     [SerializeField] GameObject leaderboardPanel;
+    [SerializeField] TMP_Text leaderboardHeaderText;
+    [SerializeField] TMP_Dropdown leaderboardDropdown;
 
-    /*
-    [SerializeField] GameObject button;
-    private int nextScene;
-
-    void Start() 
-    {
-        button.transform.GetComponent<Button>().onClick.AddListener(StartTutorial); 
-    }
-    */
-    void Start()
-    {
-        decisionPanel.SetActive(false);
-        LoginPanel.SetActive(false);
-        leaderboardPanel.SetActive(false);
-    }
     public void StartGame()
     {
         SceneManager.LoadScene("Main_Menu");
@@ -78,7 +67,14 @@ public class MainMenu : MonoBehaviour
     {
         spaceShip.SetActive(false);
         decisionPanel.SetActive(false);
+        scoreSelectPanel.SetActive(true);
+    }
+
+    public void SelectLeaderboardButton()
+    {
+        scoreSelectPanel.SetActive(false);
         leaderboardPanel.SetActive(true);
+        leaderboardHeaderText.text = leaderboardDropdown.options[leaderboardDropdown.value].text;
 
         try {
             gameObject.GetComponent<PlayfabManager>().getLeaderboard();
@@ -95,6 +91,15 @@ public class MainMenu : MonoBehaviour
     {
         LoginPanel.SetActive(false);
         leaderboardPanel.SetActive(false);
+        logo.SetActive(true);
+        spaceShip.SetActive(true);
+        playButton.SetActive(true);
+        statsButton.SetActive(true);
+    }
+
+    public void SelectScoreBackButton()
+    {
+        scoreSelectPanel.SetActive(false);
         logo.SetActive(true);
         spaceShip.SetActive(true);
         playButton.SetActive(true);
