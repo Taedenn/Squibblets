@@ -61,6 +61,7 @@ public class MainMenu : MonoBehaviour
         spaceShip.SetActive(false);
         decisionPanel.SetActive(false);
         LoginPanel.SetActive(true);
+        failText.text = "";
     }
 
     public void ScoresButton()
@@ -72,6 +73,7 @@ public class MainMenu : MonoBehaviour
 
     public void SelectLeaderboardButton()
     {
+        Debug.Log("SOMET");
         scoreSelectPanel.SetActive(false);
         leaderboardPanel.SetActive(true);
         leaderboardHeaderText.text = leaderboardDropdown.options[leaderboardDropdown.value].text;
@@ -90,19 +92,20 @@ public class MainMenu : MonoBehaviour
     public void LoginBackButton()
     {
         LoginPanel.SetActive(false);
-        leaderboardPanel.SetActive(false);
-        logo.SetActive(true);
+        decisionPanel.SetActive(true);
         spaceShip.SetActive(true);
-        playButton.SetActive(true);
-        statsButton.SetActive(true);
     }
 
     public void SelectScoreBackButton()
     {
         scoreSelectPanel.SetActive(false);
-        logo.SetActive(true);
+        decisionPanel.SetActive(true);
         spaceShip.SetActive(true);
-        playButton.SetActive(true);
-        statsButton.SetActive(true);
+    }
+
+    public void LeaderBoardBackButton()
+    {
+        leaderboardPanel.SetActive(false);
+        scoreSelectPanel.SetActive(true);
     }
 }
