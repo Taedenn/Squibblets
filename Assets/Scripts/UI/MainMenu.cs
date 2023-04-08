@@ -9,16 +9,21 @@ using PlayFab;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] GameObject playButton;
-    [SerializeField] GameObject statsButton;
+    [Header ("Opening screen")]
+    [SerializeField] GameObject mainPanel;
     [SerializeField] GameObject logo;
+    [SerializeField] GameObject spaceShip;
+    [Header ("Menu selection")]
     [SerializeField] GameObject decisionPanel;
-    [SerializeField] TMP_Text failText;
+    [Header ("Level selection")]
+    [SerializeField] GameObject levelSelectPanel;
+    [SerializeField] TMP_Dropdown levelSelectDropdown;
+    [Header ("User creation")]
     [SerializeField] GameObject LoginPanel;
     [SerializeField] GameObject usernamePanel;
-    [SerializeField] GameObject scoreSelectPanel;
-    [SerializeField] GameObject spaceShip;
     [Header ("Leaderboard")]
+    [SerializeField] GameObject scoreSelectPanel;
+    [SerializeField] TMP_Text failText;
     [SerializeField] GameObject leaderboardPanel;
     [SerializeField] TMP_Text leaderboardHeaderText;
     [SerializeField] TMP_Dropdown leaderboardDropdown;
@@ -43,22 +48,19 @@ public class MainMenu : MonoBehaviour
     {
         logo.SetActive(false);
         decisionPanel.SetActive(true);
-        playButton.SetActive(false);
-        statsButton.SetActive(false);
+        mainPanel.SetActive(false);
     }
 
     public void DecisionBackButton()
     {
         decisionPanel.SetActive(false);
         logo.SetActive(true);
-        playButton.SetActive(true);
-        statsButton.SetActive(true);
+        mainPanel.SetActive(true);
         failText.text = "";
     }
 
     public void LoginButton()
     {
-        spaceShip.SetActive(false);
         decisionPanel.SetActive(false);
         LoginPanel.SetActive(true);
         failText.text = "";
@@ -66,7 +68,6 @@ public class MainMenu : MonoBehaviour
 
     public void ScoresButton()
     {
-        spaceShip.SetActive(false);
         decisionPanel.SetActive(false);
         scoreSelectPanel.SetActive(true);
     }
@@ -107,5 +108,23 @@ public class MainMenu : MonoBehaviour
     {
         leaderboardPanel.SetActive(false);
         scoreSelectPanel.SetActive(true);
+    }
+
+    public void LevelsButton() 
+    {
+        mainPanel.SetActive(false);
+        levelSelectPanel.SetActive(true);
+    }
+    public void LevelSelectBackButton()
+    {
+        levelSelectPanel.SetActive(false);
+        mainPanel.SetActive(true);
+    }
+    public void LevelSelectPlayButton()
+    {
+        int index = levelSelectDropdown.value;
+        List<TMP_Dropdown.OptionData> options = levelSelectDropdown.options;
+
+        SceneManager.LoadScene(options[index].text);
     }
 }
