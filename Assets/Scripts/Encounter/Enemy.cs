@@ -8,7 +8,6 @@ using System.Data;
 public class Enemy : MonoBehaviour
 {
     // Player stuff
-    PlayerController playerRef;
     [SerializeField] GameObject player;
     // Question info
     int random_range;
@@ -41,8 +40,6 @@ public class Enemy : MonoBehaviour
     public QuestionSetup.difficulty_level difficulty = QuestionSetup.difficulty_level.Easy;
 
     void Start() {
-        playerRef = player.GetComponent<PlayerController>();
-
         question = QuestionSetup.GetRandomQuestion(difficulty);
         correct_answer = QuestionSetup.GetCorrectAnswer(question, difficulty);
         random_range = QuestionSetup.GetRandomRange(difficulty);
@@ -112,7 +109,6 @@ public class Enemy : MonoBehaviour
 
     void ChangeButton(GameObject button)
     {
-        Debug.Log(selected_button.transform.Find("Border"));
         selected_button.transform.Find("Border").GetComponent<SpriteRenderer>().enabled = false;
         button.transform.Find("Border").GetComponent<SpriteRenderer>().enabled = true;
         audio_player.PlayOneShot(button_selectSFX);
@@ -203,10 +199,10 @@ public class Enemy : MonoBehaviour
         foreach (GameObject obj in unactive_objects)
             obj.SetActive(false);
 
-        playerRef.enabled = true;
+        player.GetComponent<PlayerController>().enabled = true;
         enemy_renderer.color = Color.red;
 
-        KillCounter(playerRef);
+        player.GetComponent<PlayerScoreTracker>().AddKill();
         audio_player.PlayOneShot(winSFX);
         particles.Play();
         ResetButtons(originalColor);
@@ -218,7 +214,4 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void KillCounter(PlayerController playerRef){
-        playerRef.killCount++;
-    }
 }

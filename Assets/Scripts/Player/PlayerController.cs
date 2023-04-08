@@ -20,8 +20,6 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 1f;
     public float collisionOffset = 0.05f;
-    public float desiredKillCount = 1f;
-    public int killCount;
     public ContactFilter2D movementFilter;
     private Vector2 moveInput;
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();

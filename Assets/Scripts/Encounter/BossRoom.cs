@@ -7,11 +7,11 @@ public class BossRoom : MonoBehaviour
 {
     [SerializeField] GameObject player;
     public int count;
-    public PlayerController playerRef;
+    public PlayerScoreTracker playerRef;
     // Start is called before the first frame update
     void Start()
     {
-        playerRef = player.GetComponent<PlayerController>();
+        playerRef = player.GetComponent<PlayerScoreTracker>();
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }

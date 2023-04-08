@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 127433305}
   - component: {fileID: 127433304}
   - component: {fileID: 127433306}
+  - component: {fileID: 127433307}
   m_Layer: 0
   m_Name: SceneLoader
   m_TagString: Untagged
@@ -380,9 +381,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a032d10e5b7404f88dbb76a42f493e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 557498222}
   canvas: {fileID: 356101598}
   animator: {fileID: 127433304}
+--- !u!114 &127433307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127433303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10a28bdc5bba7f4aaecd98b65e88319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rowPrefab: {fileID: 0}
+  rowsParent: {fileID: 0}
+  messageText: {fileID: 0}
+  emailInput: {fileID: 0}
+  passwordInput: {fileID: 0}
 --- !u!1 &161748182
 GameObject:
   m_ObjectHideFlags: 0
@@ -25003,6 +25020,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2451712179299165920, guid: df0d8435bdb7f464a925cf89f81edf21, type: 3}
+      propertyPath: sceneLoader
+      value: 
+      objectReference: {fileID: 127433303}
     - target: {fileID: 3541631963514725908, guid: df0d8435bdb7f464a925cf89f81edf21, type: 3}
       propertyPath: up
       value: 
