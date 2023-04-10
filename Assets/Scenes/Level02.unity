@@ -19917,7 +19917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 916276137}
-  player: {fileID: 0}
+  player: {fileID: 1914583233}
 --- !u!1 &930222236
 GameObject:
   m_ObjectHideFlags: 0
