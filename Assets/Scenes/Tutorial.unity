@@ -26573,6 +26573,7 @@ GameObject:
   - component: {fileID: 2102159684}
   - component: {fileID: 2102159689}
   - component: {fileID: 2102159691}
+  - component: {fileID: 2102159692}
   m_Layer: 0
   m_Name: Tutorial_enemy
   m_TagString: Untagged
@@ -26730,3 +26731,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &2102159692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102159681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a75b188e253356428fdab882c459ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prey: {fileID: 557498222}
+  move_speed: 1
