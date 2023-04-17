@@ -76,6 +76,9 @@ public class Enemy : MonoBehaviour
 
         player.GetComponent<PlayerController>().TerminateAnimations();
         player.GetComponent<PlayerController>().enabled = false;
+
+        foreach (Chase chase_ai in FindObjectsOfType<Chase>())
+            chase_ai.enabled = false;
     }
 
     void CheckButtonChange()
@@ -207,6 +210,9 @@ public class Enemy : MonoBehaviour
         particles.Play();
         ResetButtons(originalColor);
         Invoke("Deletion", deletion_delay);
+
+        foreach (Chase chase_ai in FindObjectsOfType<Chase>())
+            chase_ai.enabled = false;
     }
 
     void Deletion()
