@@ -22,6 +22,9 @@ public class BossRoom : MonoBehaviour
         if(playerRef.killCount == count){
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+            foreach (Chase chase_ai in FindObjectsOfType<Chase>())
+                chase_ai.enabled = true;
         }
     }
 }

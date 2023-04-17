@@ -212,7 +212,7 @@ public class Enemy : MonoBehaviour
         Invoke("Deletion", deletion_delay);
 
         foreach (Chase chase_ai in FindObjectsOfType<Chase>())
-            chase_ai.enabled = false;
+            chase_ai.enabled = true;
     }
 
     void Deletion()
