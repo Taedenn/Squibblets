@@ -3,8 +3,10 @@ using UnityEngine;
 public class BossRoom : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    [SerializeField] AudioSource audioPlayer;
+    [SerializeField] AudioClip bossFightSFX;
     public int count;
-    public PlayerScoreTracker playerRef;
+    PlayerScoreTracker playerRef;
     bool inBossFight = false;
     void Start()
     {
@@ -19,6 +21,9 @@ public class BossRoom : MonoBehaviour
     void Update()
     {
         if(playerRef.killCount == count) {
+            audioPlayer.clip = bossFightSFX;
+            audioPlayer.Play();
+
             inBossFight = true;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
