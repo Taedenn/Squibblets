@@ -10889,9 +10889,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: question_text_box
       value: 
@@ -12092,9 +12100,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: question_text_box
       value: 
@@ -12404,9 +12420,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: question_text_box
       value: 
@@ -12827,9 +12851,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130077791}
     - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
       propertyPath: question_text_box
       value: 
@@ -15212,9 +15244,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130077791}
     - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
       propertyPath: question_text_box
       value: 
@@ -16265,9 +16305,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130077791}
     - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
       propertyPath: question_text_box
       value: 
@@ -18243,9 +18291,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: question_text_box
       value: 
@@ -28422,9 +28478,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: question_text_box
       value: 
@@ -28883,9 +28947,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130077791}
     - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
       propertyPath: question_text_box
       value: 
@@ -29216,8 +29288,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1914583233}
+  audioPlayer: {fileID: 1510590101}
+  bossFightSFX: {fileID: 8300000, guid: f46423cb27adf3042915b30a9b89ebfe, type: 3}
   count: 1
-  playerRef: {fileID: 0}
 --- !u!212 &1134867285
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29532,9 +29605,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: question_text_box
       value: 
@@ -30522,9 +30603,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: question_text_box
       value: 
@@ -36747,9 +36836,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: question_text_box
       value: 
@@ -40419,9 +40516,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130077791}
     - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
       propertyPath: question_text_box
       value: 
@@ -41516,9 +41621,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130077791}
     - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
       propertyPath: question_text_box
       value: 
@@ -41731,9 +41844,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130077791}
     - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
       propertyPath: question_text_box
       value: 
@@ -41836,9 +41957,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: question_text_box
       value: 
@@ -42573,9 +42702,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: question_text_box
       value: 
@@ -59745,9 +59882,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130077791}
     - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 1510590101}
+    - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
       propertyPath: audio_player
       value: 
       objectReference: {fileID: 1510590101}
+    - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
+      propertyPath: buttonSelectSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
     - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
       propertyPath: question_text_box
       value: 

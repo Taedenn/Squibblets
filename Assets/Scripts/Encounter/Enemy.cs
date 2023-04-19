@@ -5,10 +5,8 @@ using TMPro;
 
 public class Enemy : MonoBehaviour
 {
-    // Player stuff
     [SerializeField] GameObject player;
-    // Question info
-    int random_range;
+    [Header("Question info")]
     [SerializeField] GameObject button1;
     [SerializeField] GameObject button2;
     [SerializeField] GameObject button3;
@@ -19,34 +17,39 @@ public class Enemy : MonoBehaviour
     List<GameObject> unactive_objects;
     string question;
     int correct_answer;
-    // Winning and audio
+    [Header("Winning and Audio")]
     [SerializeField] float deletion_delay = 2f;
     [SerializeField] AudioClip winSFX;
     [SerializeField] AudioClip loseSFX;
-    [SerializeField] AudioClip button_selectSFX;
-    [SerializeField] AudioSource audio_player;
+    [SerializeField] AudioClip buttonSelectSFX;
+    [SerializeField] AudioSource audioPlayer;
+    AudioClip levelTheme;
     // Renderer stuff
     ParticleSystem particles;
     SpriteRenderer enemy_renderer;
     bool isDead = false;
     // Encounter info
     bool inEncounter = false;
-    float last_button_change = 0;
-    float last_button_select = 0;
+    float lastButtonChange = 0;
+    float lastButtonSelect = 0;
     private Color originalColor;
     bool inBossFight = false;
+    int randomRange;
+
     public QuestionSetup.difficulty_level difficulty = QuestionSetup.difficulty_level.Easy;
 
     void Start() {
         question = QuestionSetup.GetRandomQuestion(difficulty);
         correct_answer = QuestionSetup.GetCorrectAnswer(question, difficulty);
-        random_range = QuestionSetup.GetRandomRange(difficulty);
+        randomRange = QuestionSetup.GetRandomRange(difficulty);
 
         unactive_objects = new List<GameObject>{button1, button2, button3, question_text_box};
         SetupButtons();
 
         enemy_renderer = gameObject.GetComponent<SpriteRenderer>();
         particles = transform.GetComponentInChildren<ParticleSystem>();
+
+        levelTheme = audioPlayer.clip;
     }
 
     void Update() 
@@ -89,7 +92,7 @@ public class Enemy : MonoBehaviour
 
     void CheckButtonChange()
     {
-        if (Time.time - last_button_change < 0.4f)
+        if (Time.time - lastButtonChange < 0.4f)
             return;
 
         if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && selected_button == button1)
@@ -104,7 +107,7 @@ public class Enemy : MonoBehaviour
 
     void CheckButtonSelection()
     {
-        if (Time.time - last_button_select < 0.4f)
+        if (Time.time - lastButtonSelect < 0.4f)
             return;
 
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) && selected_button == correct_button){
@@ -112,7 +115,7 @@ public class Enemy : MonoBehaviour
         }
         else if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return)) && selected_button != correct_button){
             WrongAnswerAction(selected_button);
-            last_button_select = Time.time;
+            lastButtonSelect = Time.time;
         }
     }
 
@@ -120,9 +123,9 @@ public class Enemy : MonoBehaviour
     {
         selected_button.transform.Find("Border").GetComponent<SpriteRenderer>().enabled = false;
         button.transform.Find("Border").GetComponent<SpriteRenderer>().enabled = true;
-        audio_player.PlayOneShot(button_selectSFX);
+        audioPlayer.PlayOneShot(buttonSelectSFX);
         selected_button = button;
-        last_button_change = Time.time;
+        lastButtonChange = Time.time;
     }
 
     void SetupButtons()
@@ -176,10 +179,10 @@ public class Enemy : MonoBehaviour
         int random_number;
 
         foreach (GameObject buttonObject in incorrect_buttons) {
-            random_number = Mathf.RoundToInt(Random.Range(-random_range, random_range));
+            random_number = Mathf.RoundToInt(Random.Range(-randomRange, randomRange));
             
             while (random_number == 0 || nums_used.Contains(random_number) || random_number + correct_answer < 0)
-                random_number = Mathf.RoundToInt(Random.Range(-random_range, random_range));
+                random_number = Mathf.RoundToInt(Random.Range(-randomRange, randomRange));
             
             buttonObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText((correct_answer + random_number).ToString());
             buttonObject.transform.GetComponent<Button>().onClick.AddListener(() => WrongAnswerAction(buttonObject));
@@ -190,7 +193,7 @@ public class Enemy : MonoBehaviour
     void WrongAnswerAction(GameObject button)
     {
         button.GetComponent<Image>().color = Color.red;
-        audio_player.PlayOneShot(loseSFX);
+        audioPlayer.PlayOneShot(loseSFX);
         player.GetComponent<PlayerScoreTracker>().AddMistake();
     }
     void ResetButtons(Color originalColor){
@@ -212,7 +215,7 @@ public class Enemy : MonoBehaviour
         enemy_renderer.color = Color.red;
 
         player.GetComponent<PlayerScoreTracker>().AddKill();
-        audio_player.PlayOneShot(winSFX);
+        audioPlayer.PlayOneShot(winSFX);
         particles.Play();
         ResetButtons(originalColor);
         Invoke("Deletion", deletion_delay);
@@ -220,7 +223,17 @@ public class Enemy : MonoBehaviour
         if (!inBossFight)
             return;
 
-        foreach (Chase chase_ai in FindObjectsOfType<Chase>())
+        Chase[] chasers = FindObjectsOfType<Chase>();
+
+        // we're checking 1 instead of 0 since there's a delay when enemies get deleted
+        if (chasers.Length == 1){
+            inBossFight = false;
+            audioPlayer.clip = levelTheme;
+            audioPlayer.Play();
+            return;
+        }
+
+        foreach (Chase chase_ai in chasers)
             chase_ai.enabled = true;
     }
 
