@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Data;
 
 public class Enemy : MonoBehaviour
 {
@@ -36,7 +34,7 @@ public class Enemy : MonoBehaviour
     float last_button_change = 0;
     float last_button_select = 0;
     private Color originalColor;
-    // Difficulty stuff
+    bool inBossFight = false;
     public QuestionSetup.difficulty_level difficulty = QuestionSetup.difficulty_level.Easy;
 
     void Start() {
@@ -77,8 +75,16 @@ public class Enemy : MonoBehaviour
         player.GetComponent<PlayerController>().TerminateAnimations();
         player.GetComponent<PlayerController>().enabled = false;
 
-        foreach (Chase chase_ai in FindObjectsOfType<Chase>())
+        foreach (Chase chase_ai in FindObjectsOfType<Chase>()) {
+            // Check if we aren't in a boss fight so we don't re-enable chaseAI when we defeat enemy
+            if (!chase_ai.enabled) {
+                inBossFight = false;
+                break;
+            }
+
+            inBossFight = true;
             chase_ai.enabled = false;
+        }
     }
 
     void CheckButtonChange()
@@ -210,6 +216,9 @@ public class Enemy : MonoBehaviour
         particles.Play();
         ResetButtons(originalColor);
         Invoke("Deletion", deletion_delay);
+
+        if (!inBossFight)
+            return;
 
         foreach (Chase chase_ai in FindObjectsOfType<Chase>())
             chase_ai.enabled = true;

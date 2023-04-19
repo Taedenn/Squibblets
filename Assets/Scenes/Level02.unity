@@ -29216,7 +29216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1914583233}
-  count: 14
+  count: 1
   playerRef: {fileID: 0}
 --- !u!212 &1134867285
 SpriteRenderer:
