@@ -26573,7 +26573,6 @@ GameObject:
   - component: {fileID: 2102159684}
   - component: {fileID: 2102159689}
   - component: {fileID: 2102159691}
-  - component: {fileID: 2102159692}
   m_Layer: 0
   m_Name: Tutorial_enemy
   m_TagString: Untagged
@@ -26653,9 +26652,9 @@ MonoBehaviour:
   deletion_delay: 2
   winSFX: {fileID: 8300000, guid: 54395fd2403c204409700488d7e1cac9, type: 3}
   loseSFX: {fileID: 8300000, guid: 07392f9cebebb70458eab5f2136864e3, type: 3}
-  button_selectSFX: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
-  audio_player: {fileID: 1797143088}
-  difficulty: 2
+  buttonSelectSFX: {fileID: 8300000, guid: 1792c7124c8632b4eb76c876be10dfcb, type: 3}
+  audioPlayer: {fileID: 1797143088}
+  difficulty: 5
 --- !u!61 &2102159685
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26731,17 +26730,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &2102159692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102159681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a75b188e253356428fdab882c459ea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prey: {fileID: 557498222}
-  move_speed: 1

@@ -12851,6 +12851,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130077791}
     - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
+      propertyPath: difficulty
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
       propertyPath: audioPlayer
       value: 
       objectReference: {fileID: 1510590101}
@@ -36836,6 +36840,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
+      propertyPath: difficulty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 591411760656179207, guid: 829f272a4a4133b439ecf3b1004f359c, type: 3}
       propertyPath: audioPlayer
       value: 
       objectReference: {fileID: 1510590101}
@@ -41621,6 +41629,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130077791}
     - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
+      propertyPath: difficulty
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 937995895073114571, guid: 8fefd4fcc5e82c146b24821d22ac85d3, type: 3}
       propertyPath: audioPlayer
       value: 
       objectReference: {fileID: 1510590101}
@@ -41843,6 +41855,10 @@ PrefabInstance:
       propertyPath: button3
       value: 
       objectReference: {fileID: 2130077791}
+    - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
+      propertyPath: difficulty
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2837116581453387817, guid: 94c9720bfb8b983499da0e12d4b72f62, type: 3}
       propertyPath: audioPlayer
       value: 
